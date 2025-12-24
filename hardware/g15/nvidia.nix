@@ -15,7 +15,7 @@
       "iommu=pt"
     ];
 
-    initrd.kernelModules = [ 
+    initrd.kernelModules = [
       "nvidia"
       "nvidia_uvm"
       "nvidia_drm"

@@ -40,6 +40,9 @@
       lib = import ./lib.nix { inherit inputs; };
     in
     {
-      nixosConfigurations = lib.mkHosts [ "pc" "g15" ];
+      nixosConfigurations = lib.mkHosts [
+        "pc"
+        "g15"
+      ];
     };
 }
