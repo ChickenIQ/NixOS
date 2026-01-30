@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
-    discord-canary
+    discord
     mangohud
   ];
 
@@ -11,18 +11,24 @@
     packages =
       let
         mkApp = pkg: "flathub:app/${pkg}/x86_64/stable";
+        hytale = pkgs.fetchurl {
+          url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
+          hash = "sha256-GRkA9piBoPoCLoxM5zZTIv7ocdIClvsavGnjah0JJME=";
+        };
       in
-      builtins.map mkApp [
+      (map mkApp [
         "org.prismlauncher.PrismLauncher"
         "io.gitlab.librewolf-community"
         "at.vintagestory.VintageStory"
         "org.qbittorrent.qBittorrent"
         "com.heroicgameslauncher.hgl"
+        "com.obsproject.Studio"
         "md.obsidian.Obsidian"
         "com.stremio.Stremio"
         "org.vinegarhq.Sober"
         "com.spotify.Client"
-      ];
+      ])
+      ++ [ ":${hytale}" ];
 
     overrides = {
       "com.stremio.Stremio".Environment.QSG_RENDER_LOOP = "threaded";

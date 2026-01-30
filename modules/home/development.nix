@@ -26,6 +26,7 @@
     blender
 
     # IDEs
+    jetbrains.idea
     jetbrains.clion
 
     # Nix

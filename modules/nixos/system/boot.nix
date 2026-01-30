@@ -16,7 +16,7 @@
       "vm.max_map_count" = 2147483642;
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 }

@@ -19,7 +19,11 @@
     gamescope.enable = true;
     gamemode.enable = true;
     nix-ld.enable = true;
-    fuse.enable = true;
+
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
 
     steam = {
       enable = true;
@@ -38,7 +42,10 @@
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.full
+    kdiskmark
     sbctl
+    vlc
+    rar
   ];
 
   fonts.packages = with pkgs; [
