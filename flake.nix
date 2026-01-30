@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/release-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
     facter.url = "github:nix-community/nixos-facter-modules";
@@ -41,8 +41,8 @@
     in
     {
       nixosConfigurations = lib.mkHosts [
-        "pc"
         "g15"
+        "pc"
       ];
     };
 }

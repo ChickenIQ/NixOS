@@ -1,4 +1,9 @@
 {
+  services.netbird = {
+    enable = true;
+    clients.default.port = 51829;
+  };
+
   networking = {
     networkmanager.enable = true;
     firewall.allowedUDPPorts = [ 51820 ];

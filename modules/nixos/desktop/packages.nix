@@ -19,6 +19,7 @@
     gamescope.enable = true;
     gamemode.enable = true;
     nix-ld.enable = true;
+    fuse.enable = true;
 
     steam = {
       enable = true;

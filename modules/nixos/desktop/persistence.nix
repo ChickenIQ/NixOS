@@ -10,6 +10,7 @@
       "/etc/NetworkManager/system-connections"
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"
+      "/var/lib/netbird"
       "/var/lib/nixos"
       "/var/lib/sbctl"
       "/etc/wireguard"

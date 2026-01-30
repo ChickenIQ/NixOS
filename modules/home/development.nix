@@ -30,7 +30,7 @@
 
     # Nix
     nixd
-    nixfmt-rfc-style
+    nixfmt
 
     # JS/TS
     nodePackages.nodejs
