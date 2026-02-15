@@ -13,7 +13,7 @@
         mkApp = pkg: "flathub:app/${pkg}/x86_64/stable";
         hytale = pkgs.fetchurl {
           url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-          hash = "sha256-GRkA9piBoPoCLoxM5zZTIv7ocdIClvsavGnjah0JJME=";
+          hash = "sha256-/S40Za4Rzro6NiH9vqnqo1UuuSbOspOk6MBoCSw8GLg=";
         };
       in
       (map mkApp [
