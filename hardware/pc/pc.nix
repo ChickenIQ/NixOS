@@ -11,7 +11,7 @@
   };
 
   boot.kernelParams = [
-    "iommu=pt"
     "amd_iommu=on"
+    "iommu=pt"
   ];
 }
