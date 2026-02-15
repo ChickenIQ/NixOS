@@ -53,6 +53,7 @@
     kubectl
     kubectx
     talosctl
+    vcluster
     kubelogin-oidc
     kubernetes-helm
   ];

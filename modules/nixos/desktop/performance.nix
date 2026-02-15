@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   zramSwap.enable = true;
 
@@ -6,8 +7,11 @@
       enable = true;
       scheduler = "scx_lavd";
     };
+    ananicy = {
+      enable = true;
+      extraRules = [ pkgs.ananicy-rules-cachyos ];
+    };
     lact.enable = true;
     bpftune.enable = true;
-    thermald.enable = true;
   };
 }

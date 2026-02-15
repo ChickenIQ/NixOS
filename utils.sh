@@ -54,8 +54,6 @@ facter() {
   git add ./hardware/$hostname/facter.json
 }
 
-vm() { nix run -L ".#nixosConfigurations.$hostname.config.system.build.vm"; }
-
 install() {
   mkdir -p /mnt/data/etc/nixos/
   cp -r ./* /mnt/data/etc/nixos/
@@ -96,11 +94,7 @@ case "$1" in
     facter
     "$1"
   ;;
-
-  vm) 
-    setHostname "$2"
-    "$1"
-    ;;
+  
   *)
     echo "Usage: $0 <mode> <hostname> <disk>"
     echo "Modes: format, mount, facter, install"

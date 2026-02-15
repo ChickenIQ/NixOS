@@ -7,7 +7,6 @@
   imports = with inputs; [
     impermanence.nixosModules.impermanence
     home-manager.nixosModules.home-manager
-    lanzaboote.nixosModules.lanzaboote
     nix-index.nixosModules.nix-index
     facter.nixosModules.facter
     disko.nixosModules.disko
@@ -23,10 +22,6 @@
     users.emi.imports = [ (inputs.import-tree "${inputs.self}/modules/home") ];
   };
 
-  services = {
-    kmscon.enable = true;
-    btrfs.autoScrub.enable = true;
-  };
-
+  services.btrfs.autoScrub.enable = true;
   facter.reportPath = "${inputs.self}/hardware/${config.networking.hostName}/facter.json";
 }
