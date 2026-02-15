@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   hardware = {
     amdgpu.overdrive.enable = true;
@@ -12,11 +13,11 @@
   };
 
   environment.etc."lact/config.yaml".text = ''
-    version: 5 
+    version: 5
     current_profile: null
 
-    daemon: 
-      log_level: info 
+    daemon:
+      log_level: info
       admin_group: wheel
 
     gpus:
@@ -34,5 +35,46 @@
             75: 0.30
             80: 0.35
             85: 0.40
+  '';
+
+  virtualisation.libvirtd.hooks.qemu."gpu-passthrough" = pkgs.writeShellScript "libvirt-hooks-qemu" ''
+    export PATH=$PATH:${pkgs.libvirt}/bin
+    set -x
+
+    start() {
+      # Stop Services
+      systemctl stop lactd.service display-manager.service user@1000.service
+
+      # Unload GPU modules
+      while ! modprobe -r amdgpu; do sleep 1; done
+
+      # Unbind the GPU from display driver
+      virsh nodedev-detach pci_0000_03_00_0
+      virsh nodedev-detach pci_0000_03_00_1
+
+      # Load VFIO Kernel Module
+      modprobe vfio-pci
+    }
+
+    stop() {
+      # Unload VFIO Kernel Module
+      while ! modprobe -r vfio-pci; do sleep 1; done
+
+      # Bind the GPU to display driver
+      virsh nodedev-reattach pci_0000_03_00_0
+      virsh nodedev-reattach pci_0000_03_00_1
+
+      # Load GPU Modules
+      modprobe amdgpu
+
+      # Start Services
+      systemctl start lactd.service display-manager.service
+    }
+
+    NAME="$1" HOOK="$2" STATE="$3"
+    [[ $(echo "''${NAME##*-}" | tr '[:upper:]' '[:lower:]') != "gpu" ]] && exit 0
+    [ "$HOOK" = "prepare" ] && [ "$STATE" = "begin" ] && start
+    [ "$HOOK" = "release" ] && [ "$STATE" = "end" ] && stop
+    exit 0
   '';
 }
