@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
-    discord
     mangohud
+    discord
   ];
 
   services.flatpak = {
