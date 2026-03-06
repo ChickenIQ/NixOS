@@ -22,6 +22,7 @@
         "at.vintagestory.VintageStory"
         "org.qbittorrent.qBittorrent"
         "com.heroicgameslauncher.hgl"
+        "com.teamspeak.TeamSpeak"
         "com.obsproject.Studio"
         "md.obsidian.Obsidian"
         "com.stremio.Stremio"

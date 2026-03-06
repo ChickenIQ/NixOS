@@ -3,7 +3,13 @@
   programs.virt-manager.enable = true;
 
   virtualisation = {
-    docker.enable = true;
+    docker = {
+      enable = true;
+      daemon.settings.dns = [
+        "1.1.1.1"
+        "8.8.8.8"
+      ];
+    };
     libvirtd = {
       enable = true;
       onBoot = "ignore";

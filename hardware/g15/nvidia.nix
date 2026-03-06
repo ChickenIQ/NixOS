@@ -1,6 +1,4 @@
 {
-  environment.variables."KWIN_DRM_DEVICES" = "/dev/dri/card0:/dev/dri/card1:/dev/dri/card2";
-
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {

@@ -24,6 +24,7 @@
     # General
     sops
     blender
+    gnumake
 
     # IDEs
     jetbrains.idea
@@ -56,5 +57,8 @@
     vcluster
     kubelogin-oidc
     kubernetes-helm
+
+    # Fun
+    antigravity
   ];
 }
