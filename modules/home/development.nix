@@ -29,13 +29,11 @@
     # IDEs
     jetbrains.idea
     jetbrains.clion
+    jetbrains.goland
 
     # Nix
     nixd
     nixfmt
-
-    # JS/TS
-    nodePackages.nodejs
 
     # C/C++
     gcc
@@ -58,7 +56,7 @@
     kubelogin-oidc
     kubernetes-helm
 
-    # Fun
-    antigravity
+    # AI
+    claude-code
   ];
 }

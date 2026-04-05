@@ -1,7 +1,9 @@
+{ pkgs, ... }:
 {
   services.netbird = {
     enable = true;
     clients.default.port = 51829;
+    package = pkgs.unstable.netbird;
   };
 
   networking = {

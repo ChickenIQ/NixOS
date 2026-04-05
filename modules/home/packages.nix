@@ -19,6 +19,7 @@
       (map mkApp [
         "org.prismlauncher.PrismLauncher"
         "io.gitlab.librewolf-community"
+        "org.onlyoffice.desktopeditors"
         "at.vintagestory.VintageStory"
         "org.qbittorrent.qBittorrent"
         "com.heroicgameslauncher.hgl"
