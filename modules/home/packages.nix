@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     mangohud
     discord
+    spotify
   ];
 
   services.flatpak = {
@@ -28,7 +29,6 @@
         "md.obsidian.Obsidian"
         "com.stremio.Stremio"
         "org.vinegarhq.Sober"
-        "com.spotify.Client"
       ])
       ++ [ ":${hytale}" ];
 

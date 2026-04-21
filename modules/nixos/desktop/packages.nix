@@ -27,7 +27,9 @@
 
     steam = {
       enable = true;
+      extraPackages = with pkgs; [ kdePackages.breeze ];
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
+      package = pkgs.steam.override { extraArgs = "-silent steam://open/main"; };
     };
 
     nh = {

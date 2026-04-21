@@ -55,8 +55,5 @@
     vcluster
     kubelogin-oidc
     kubernetes-helm
-
-    # AI
-    claude-code
   ];
 }

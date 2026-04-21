@@ -10,6 +10,11 @@
     device = "/dev/disk/by-label/Games";
   };
 
+  hardware.keyboard.qmk = {
+    enable = true;
+    keychronSupport = true;
+  };
+
   boot = {
     extraModprobeConfig = "softdep amdgpu pre: vfio vfio-pci";
     initrd.kernelModules = [
@@ -24,5 +29,4 @@
       "iommu=pt"
     ];
   };
-
 }
