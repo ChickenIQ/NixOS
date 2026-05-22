@@ -7,7 +7,6 @@
   };
 
   networking = {
-    useDHCP = false;
     dhcpcd.enable = false;
     networkmanager.enable = true;
     firewall.allowedUDPPorts = [ 51820 ];
