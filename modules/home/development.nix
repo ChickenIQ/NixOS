@@ -4,7 +4,21 @@
     gh.enable = true;
     git.enable = true;
     btop.enable = true;
-    vscode.enable = true;
+    vscode = {
+      enable = true;
+      package = pkgs.unstable.vscode;
+    };
+
+    codex = {
+      enable = true;
+      package = pkgs.unstable.codex;
+    };
+
+    zed-editor = {
+      enable = true;
+      package = pkgs.unstable.zed-editor;
+    };
+
     fish = {
       shellInitLast = ''
         kubectl completion fish | source

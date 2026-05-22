@@ -1,3 +1,4 @@
+{ pkgs, lib, ... }:
 {
   networking = {
     firewall.allowedUDPPorts = [ 9 ];
@@ -29,4 +30,5 @@
       "iommu=pt"
     ];
   };
+
 }

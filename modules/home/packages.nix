@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    moonlight-qt
     mangohud
     discord
     spotify

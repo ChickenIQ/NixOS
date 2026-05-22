@@ -23,7 +23,7 @@
     gpus:
       1002:7550-1DA2:E490-0000:03:00.0:
         power_cap: 250.0
-        voltage_offset: -80
+        voltage_offset: -70
         fan_control_enabled: true
         fan_control_settings:
           mode: curve

@@ -26,4 +26,8 @@
     "libvirtd"
     "docker"
   ];
+
+  networking.firewall.extraCommands = ''
+    iptables -I FORWARD -s 192.168.122.0/24 -d 192.168.0.0/16 -j DROP
+  '';
 }

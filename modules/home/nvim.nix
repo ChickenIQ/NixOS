@@ -55,11 +55,11 @@
         enableTreesitter = true;
         enableExtraDiagnostics = true;
 
-        ts.enable = true;
         go.enable = true;
         nix.enable = true;
         clang.enable = true;
         python.enable = true;
+        typescript.enable = true;
       };
     };
   };

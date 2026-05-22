@@ -7,6 +7,8 @@
   };
 
   networking = {
+    useDHCP = false;
+    dhcpcd.enable = false;
     networkmanager.enable = true;
     firewall.allowedUDPPorts = [ 51820 ];
 
@@ -24,4 +26,6 @@
       ];
     };
   };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
