@@ -27,10 +27,12 @@
           };
           "capture.props" = {
             "node.name" = "capture.rnnoise_source";
+            "audio.position" = [ "MONO" ];
             "node.passive" = true;
             "audio.rate" = 48000;
           };
           "playback.props" = {
+            "audio.position" = [ "MONO" ];
             "node.name" = "rnnoise_source";
             "media.class" = "Audio/Source";
             "audio.rate" = 48000;

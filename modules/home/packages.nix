@@ -30,6 +30,7 @@
         "md.obsidian.Obsidian"
         "com.stremio.Stremio"
         "org.vinegarhq.Sober"
+        "org.videolan.VLC"
       ])
       ++ [ ":${hytale}" ];
 

@@ -16,6 +16,7 @@
 
   programs = {
     nix-index-database.comma.enable = true;
+    gpu-screen-recorder.enable = true;
     gamescope.enable = true;
     gamemode.enable = true;
     nix-ld.enable = true;
@@ -46,7 +47,6 @@
     nvtopPackages.full
     kdiskmark
     sbctl
-    vlc
     rar
   ];
 
