@@ -51,8 +51,8 @@
   ];
 
   fonts.packages = with pkgs; [
-    noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
+    noto-fonts-color-emoji
     nerd-fonts.hack
     liberation_ttf
     vista-fonts
