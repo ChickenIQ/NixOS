@@ -36,7 +36,7 @@
         ${pkgs.bash}/bin/sh -c '${pkgs.gpu-screen-recorder}/bin/gpu-screen-recorder \
           -a "$(${pkgs.pulseaudio}/bin/pactl get-default-sink).monitor|rnnoise_source" \
           -o ${config.home.homeDirectory}/Videos/Replays \
-          -w screen -r 60 -c mp4 -k av1'
+          -w screen -r 60 -c mp4 -k av1 -fm cfr'
       '';
     };
   };
