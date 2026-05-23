@@ -36,9 +36,11 @@
       RestartSec = "5s";
       ExecStart = ''
         ${pkgs.bash}/bin/sh -c '${pkgs.gpu-screen-recorder}/bin/gpu-screen-recorder \
-          -a "$(${pkgs.pulseaudio}/bin/pactl get-default-sink).monitor|rnnoise_source" \
+          -w screen -r 60 -c mp4 -k av1 -fm cfr -bm cbr -q 40000 \
           -o ${config.home.homeDirectory}/Videos/Replays \
-          -w screen -r 60 -c mp4 -k av1 -fm cfr -bm cbr -q 40000'
+          -a "default_output|rnnoise_source" \
+          -a "default_output" \
+          -a "rnnoise_source"'
       '';
     };
   };
