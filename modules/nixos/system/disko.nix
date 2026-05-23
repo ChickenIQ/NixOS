@@ -44,6 +44,7 @@
 
   environment.persistence."/data".hideMounts = true;
   fileSystems."/data".neededForBoot = true;
+  services.btrfs.autoScrub.enable = true;
 
   boot.initrd.postResumeCommands = lib.mkAfter ''
     delete_subvolume() {

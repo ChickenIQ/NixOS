@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   nix = {
     channel.enable = false;
@@ -17,4 +17,13 @@
       })
     ];
   };
+
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "nix-run" ''
+      [ $# -ge 1 ] || { echo "usage: nix-run <package> [args...]" >&2; exit 2; }
+      pkg="$1"; shift; export NIXPKGS_ALLOW_UNFREE=1
+
+      exec nix run --impure "github:nixos/nixpkgs/nixpkgs-unstable#$pkg" -- "$@"
+    '')
+  ];
 }

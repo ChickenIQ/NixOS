@@ -21,6 +21,7 @@
 
     fish = {
       shellInitLast = ''
+        omnictl completion fish | source
         kubectl completion fish | source
         talosctl completion fish | source
       '';
@@ -65,6 +66,7 @@
     fluxcd
     kubectl
     kubectx
+    omnictl
     talosctl
     vcluster
     kubelogin-oidc

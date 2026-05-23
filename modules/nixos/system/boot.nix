@@ -27,4 +27,5 @@
       efibootmgr --bootnext "$ENTRY" && reboot
     '')
   ];
+
 }

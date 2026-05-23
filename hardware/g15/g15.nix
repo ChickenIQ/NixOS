@@ -1,7 +1,15 @@
 {
   services.thermald.enable = true;
-  boot.kernelParams = [
-    "intel_iommu=on"
-    "iommu=pt"
-  ];
+  boot = {
+    kernelModules = [ "kvm-intel" ];
+    kernelParams = [
+      "intel_iommu=on"
+      "iommu=pt"
+    ];
+  };
+
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+    bluetooth.enable = true;
+  };
 }

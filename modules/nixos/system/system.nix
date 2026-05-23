@@ -22,6 +22,4 @@
     sharedModules = [ { home.stateVersion = config.system.stateVersion; } ];
     users.emi.imports = [ (inputs.import-tree "${inputs.self}/modules/home") ];
   };
-
-  services.btrfs.autoScrub.enable = true;
 }
