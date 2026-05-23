@@ -1,4 +1,3 @@
-{ pkgs, lib, ... }:
 {
   networking = {
     firewall.allowedUDPPorts = [ 9 ];
@@ -11,13 +10,18 @@
     device = "/dev/disk/by-label/Games";
   };
 
-  hardware.keyboard.qmk = {
-    enable = true;
-    keychronSupport = true;
+  hardware = {
+    cpu.amd.updateMicrocode = true;
+    bluetooth.enable = true;
+    keyboard.qmk = {
+      enable = true;
+      keychronSupport = true;
+    };
   };
 
   boot = {
     extraModprobeConfig = "softdep amdgpu pre: vfio vfio-pci";
+    kernelModules = [ "kvm-amd" ];
     initrd.kernelModules = [
       "vfio_iommu_type1"
       "vfio_pci"

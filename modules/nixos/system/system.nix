@@ -1,14 +1,15 @@
 {
   inputs,
   config,
+  modulesPath,
   ...
 }:
 {
   imports = with inputs; [
+    (modulesPath + "/installer/scan/not-detected.nix")
     impermanence.nixosModules.impermanence
     home-manager.nixosModules.home-manager
     nix-index.nixosModules.nix-index
-    facter.nixosModules.facter
     disko.nixosModules.disko
   ];
 
@@ -23,5 +24,4 @@
   };
 
   services.btrfs.autoScrub.enable = true;
-  facter.reportPath = "${inputs.self}/hardware/${config.networking.hostName}/facter.json";
 }

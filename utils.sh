@@ -48,11 +48,6 @@ format() { disko --mode destroy,format,mount; }
 
 mount() { disko --mode mount; }
 
-facter() {
-  mkdir -p ./hardware/$hostname/
-  nix run github:nix-community/nixos-facter > ./hardware/$hostname/facter.json
-  git add ./hardware/$hostname/facter.json
-}
 
 install() {
   mkdir -p /mnt/data/etc/nixos/
@@ -81,23 +76,16 @@ case "$1" in
     "$1"
   ;;
 
-  facter)
-    checkRoot
-    setHostname "$2"
-    "$1"
-  ;;
-
   install)
     checkRoot
     checkMounted
     setHostname "$2"
-    facter
     "$1"
   ;;
   
   *)
     echo "Usage: $0 <mode> <hostname> <disk>"
-    echo "Modes: format, mount, facter, install"
+    echo "Modes: format, mount, install"
     exit 1
     ;;
 esac

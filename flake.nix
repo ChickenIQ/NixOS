@@ -4,7 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
-    facter.url = "github:nix-community/nixos-facter-modules";
     impermanence.url = "github:nix-community/impermanence";
     import-tree.url = "github:vic/import-tree";
 
