@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    eza
-  ];
+  home.packages = with pkgs; [ eza ];
 
   programs = {
     starship.enable = true;

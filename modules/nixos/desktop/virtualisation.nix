@@ -21,6 +21,7 @@
   };
 
   environment.systemPackages = with pkgs; [ docker-compose ];
+  systemd.services.libvirtd.serviceConfig.LoadCredentialEncrypted = "";
 
   users.users.emi.extraGroups = [
     "libvirtd"

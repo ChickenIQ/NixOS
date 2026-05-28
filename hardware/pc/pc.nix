@@ -21,10 +21,10 @@
 
   boot = {
     extraModprobeConfig = "softdep amdgpu pre: vfio vfio-pci";
-    kernelModules = [ "kvm-amd" ];
-    initrd.kernelModules = [
+    kernelModules = [
       "vfio_iommu_type1"
       "vfio_pci"
+      "kvm-amd"
       "vfio"
     ];
 

@@ -1,14 +1,14 @@
 {
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
-    impermanence.url = "github:nix-community/impermanence";
+    preservation.url = "github:nix-community/preservation";
     import-tree.url = "github:vic/import-tree";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -1,24 +1,43 @@
 {
-  environment.persistence."/data" = {
-    files = [
-      "/etc/ssh/ssh_host_ed25519_key"
-      "/etc/ssh/ssh_host_rsa_key"
-      "/etc/machine-id"
-    ];
+  preservation = {
+    enable = true;
+    preserveAt."/data" = {
+      commonMountOptions = [
+        "x-gvfs-hide"
+        "x-gdu.hide"
+      ];
+      files = [
+        {
+          file = "/etc/machine-id";
+          inInitrd = true;
+        }
+        {
+          file = "/etc/ssh/ssh_host_rsa_key";
+          mode = "0600";
+        }
+        {
+          file = "/etc/ssh/ssh_host_ed25519_key";
+          mode = "0600";
+        }
+      ];
 
-    directories = [
-      "/etc/NetworkManager/system-connections"
-      "/var/lib/systemd/coredump"
-      "/var/lib/systemd/timers"
-      "/var/lib/libvirt"
-      "/var/lib/netbird"
-      "/var/lib/docker"
-      "/var/lib/nixos"
-      "/var/lib/sbctl"
-      "/etc/wireguard"
-      "/var/cache"
-      "/etc/nixos"
-      "/var/log"
-    ];
+      directories = [
+        {
+          directory = "/etc/nixos";
+          user = "emi";
+        }
+        "/etc/NetworkManager/system-connections"
+        "/var/lib/libvirt"
+        "/var/lib/netbird"
+        "/var/lib/docker"
+        "/var/lib/nixos"
+        "/var/lib/sbctl"
+        "/etc/wireguard"
+        "/var/cache"
+        "/var/log"
+      ];
+    };
   };
+
+  systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
 }

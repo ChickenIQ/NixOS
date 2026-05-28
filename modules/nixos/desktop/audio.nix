@@ -4,6 +4,7 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    extraLadspaPackages = [ pkgs.rnnoise-plugin ];
     extraConfig.pipewire."99-input-denoising"."context.modules" = [
       {
         "name" = "libpipewire-module-filter-chain";
@@ -15,7 +16,7 @@
               {
                 "type" = "ladspa";
                 "name" = "rnnoise";
-                "plugin" = "${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so";
+                "plugin" = "librnnoise_ladspa";
                 "label" = "noise_suppressor_mono";
                 "control" = {
                   "VAD Threshold (%)" = 80.0;

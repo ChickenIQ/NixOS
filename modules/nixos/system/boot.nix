@@ -16,6 +16,7 @@
       "vm.max_map_count" = 2147483642;
     };
 
+    zswap.enable = true;
     kernelPackages = pkgs.linuxPackages_zen;
   };
 

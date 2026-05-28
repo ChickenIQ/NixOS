@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, ... }:
 {
   disko.devices.disk.main = {
     device = "/dev/diskoTarget";
@@ -30,6 +30,7 @@
             };
             "data" = {
               mountOptions = [ "noatime" ];
+              swap.swapfile.size = "16G";
               mountpoint = "/data";
             };
             "home" = {
@@ -42,22 +43,30 @@
     };
   };
 
-  environment.persistence."/data".hideMounts = true;
   fileSystems."/data".neededForBoot = true;
   services.btrfs.autoScrub.enable = true;
 
-  boot.initrd.postResumeCommands = lib.mkAfter ''
-    delete_subvolume() {
-      IFS=$'\n'
-      for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-        delete_subvolume "/temp/$i"
-      done
-      btrfs subvolume delete "$1"
-    }
-    mkdir /temp
-    mount /dev/disk/by-partlabel/disk-main-system /temp
-    [[ -e /temp/root ]] && delete_subvolume "/temp/root"
-    btrfs subvolume create /temp/root
-    umount /temp
-  '';
+  boot.initrd.systemd.services.reset-root = {
+    requiredBy = [ "initrd.target" ];
+    before = [ "sysroot.mount" ];
+
+    unitConfig.DefaultDependencies = false;
+    serviceConfig.Type = "oneshot";
+
+    after = [
+      "systemd-hibernate-resume.service"
+      "initrd-root-device.target"
+    ];
+
+    path = with pkgs; [
+      util-linuxMinimal
+      btrfs-progs
+    ];
+
+    script = ''
+      mount -t btrfs /dev/disk/by-partlabel/disk-main-system /tmp
+      btrfs subvolume delete --recursive /tmp/root
+      btrfs subvolume create /tmp/root
+    '';
+  };
 }

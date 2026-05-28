@@ -1,11 +1,19 @@
 { pkgs, ... }:
 {
   services = {
+    bpftune.enable = true;
     flatpak.enable = true;
+    lact.enable = true;
+
     sunshine = {
       enable = true;
       capSysAdmin = true;
       openFirewall = true;
+    };
+
+    scx = {
+      enable = true;
+      scheduler = "scx_lavd";
     };
 
     openssh = {

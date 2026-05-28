@@ -9,9 +9,11 @@ let
     ];
 
     text = ''
-      notify-send -e "GPU Screen Recorder" "Replay saved successfully!"
-      play -qn synth .07 sine C4 fade h .004 .07 .03 gain -16
-      play -qn synth .1 sine G4 fade h .004 .1 .045 gain -17
+      if [ -f "$1" ] && [ "$2" = "replay" ]; then
+        notify-send -e "GPU Screen Recorder" "Replay saved successfully!"
+        play -qn synth .07 sine C4 fade h .004 .07 .03 gain -16
+        play -qn synth .1 sine G4 fade h .004 .1 .045 gain -17
+      fi
     '';
   };
 
