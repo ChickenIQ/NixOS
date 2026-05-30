@@ -9,11 +9,6 @@
       package = pkgs.unstable.vscode;
     };
 
-    codex = {
-      enable = true;
-      package = pkgs.unstable.codex;
-    };
-
     zed-editor = {
       enable = true;
       package = pkgs.unstable.zed-editor;
