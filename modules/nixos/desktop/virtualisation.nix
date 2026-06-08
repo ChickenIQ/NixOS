@@ -29,6 +29,9 @@
   ];
 
   networking.firewall.extraCommands = ''
+    iptables -I FORWARD -s 192.168.122.0/24 -d 10.0.0.0/8 -j DROP
+    iptables -I FORWARD -s 192.168.122.0/24 -d 100.64.0.0/10 -j DROP
+    iptables -I FORWARD -s 192.168.122.0/24 -d 172.16.0.0/12 -j DROP
     iptables -I FORWARD -s 192.168.122.0/24 -d 192.168.0.0/16 -j DROP
   '';
 }

@@ -3,7 +3,6 @@
   home.packages = with pkgs.unstable; [
     moonlight-qt
     mangohud
-    discord
   ];
 
   services.flatpak = {
@@ -14,7 +13,7 @@
         mkApp = pkg: "flathub:app/${pkg}/x86_64/stable";
         hytale = pkgs.fetchurl {
           url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-          hash = "sha256-/S40Za4Rzro6NiH9vqnqo1UuuSbOspOk6MBoCSw8GLg=";
+          hash = "sha256-8B4/DsQXhNyaFI7gTNsOaA3MTXpps9nk/YgLSVip6ms=";
         };
       in
       (map mkApp [
@@ -24,6 +23,7 @@
         "at.vintagestory.VintageStory"
         "org.qbittorrent.qBittorrent"
         "com.heroicgameslauncher.hgl"
+        "com.discordapp.Discord"
         "com.obsproject.Studio"
         "md.obsidian.Obsidian"
         "com.stremio.Stremio"
@@ -36,6 +36,7 @@
 
     overrides = {
       "com.stremio.Stremio".Environment.QSG_RENDER_LOOP = "threaded";
+      "com.discordapp.Discord".Context.filesystems = [ "home" ];
       "org.vinegarhq.Sober".Context.devices = "input";
     };
   };

@@ -5,6 +5,7 @@
     alsa.enable = true;
     pulse.enable = true;
     extraLadspaPackages = [ pkgs.rnnoise-plugin ];
+    extraLv2Packages = [ pkgs.lsp-plugins ];
     extraConfig.pipewire."99-input-denoising"."context.modules" = [
       {
         "name" = "libpipewire-module-filter-chain";
@@ -19,10 +20,30 @@
                 "plugin" = "librnnoise_ladspa";
                 "label" = "noise_suppressor_mono";
                 "control" = {
-                  "VAD Threshold (%)" = 80.0;
-                  "VAD Grace Period (ms)" = 200;
+                  "VAD Threshold (%)" = 90.0;
+                  "VAD Grace Period (ms)" = 100;
                   "Retroactive VAD Grace (ms)" = 0;
                 };
+              }
+              {
+                "type" = "lv2";
+                "name" = "gate";
+                "plugin" = "http://lsp-plug.in/plugins/lv2/gate_mono";
+                "control" = {
+                  "gh" = 1;
+                  "at" = 5;
+                  "rt" = 120;
+                  "hold" = 80;
+                  "gr" = 0.001;
+                  "gt" = 0.003;
+                  "ht" = 0.0015;
+                };
+              }
+            ];
+            "links" = [
+              {
+                "output" = "rnnoise:Output";
+                "input" = "gate:in";
               }
             ];
           };
