@@ -3,6 +3,7 @@
   home.packages = with pkgs.unstable; [
     moonlight-qt
     mangohud
+    mpv
   ];
 
   services.flatpak = {
@@ -29,7 +30,6 @@
         "com.stremio.Stremio"
         "org.vinegarhq.Sober"
         "com.spotify.Client"
-        "org.videolan.VLC"
         "org.kde.kdenlive"
       ])
       ++ [ ":${hytale}" ];

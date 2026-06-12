@@ -21,21 +21,33 @@
           type = "btrfs";
           subvolumes = {
             "root" = {
-              mountOptions = [ "noatime" ];
               mountpoint = "/";
+              mountOptions = [
+                "compress=zstd"
+                "noatime"
+              ];
             };
             "nix" = {
-              mountOptions = [ "noatime" ];
               mountpoint = "/nix";
+              mountOptions = [
+                "compress=zstd"
+                "noatime"
+              ];
             };
             "data" = {
-              mountOptions = [ "noatime" ];
               swap.swapfile.size = "16G";
               mountpoint = "/data";
+              mountOptions = [
+                "compress=zstd"
+                "noatime"
+              ];
             };
             "home" = {
-              mountOptions = [ "noatime" ];
               mountpoint = "/home";
+              mountOptions = [
+                "compress=zstd"
+                "noatime"
+              ];
             };
           };
         };
