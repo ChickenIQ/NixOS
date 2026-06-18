@@ -3,8 +3,9 @@
   home.packages = with pkgs.unstable; [
     moonlight-qt
     mangohud
-    mpv
   ];
+
+  programs.mpv.enable = true;
 
   services.flatpak = {
     remotes."flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";

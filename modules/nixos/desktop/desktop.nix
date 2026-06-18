@@ -23,5 +23,6 @@
     okular
     elisa
     krdp
+    qrca
   ];
 }

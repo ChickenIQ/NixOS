@@ -51,17 +51,8 @@ mount() { disko --mode mount; }
 
 install() {
   mkdir -p /mnt/data/etc/nixos/
-  cp -r ./* /mnt/data/etc/nixos/
+  cp -a ./. /mnt/data/etc/nixos/
   chown -R 1000:1000 /mnt/data/etc/nixos/
-
-  if [ ! -d "/mnt/data/var/lib/sbctl/keys" ]; then
-    mkdir -p /mnt/data/var/lib/sbctl
-    ln -sf /mnt/data/var/lib/sbctl/ /var/lib/
-    nix-shell -p sbctl --run "sbctl create-keys"
-  fi
-
-  mkdir -p /mnt/var/lib/sbctl/
-  ln -sf /mnt/data/var/lib/sbctl/* /mnt/var/lib/sbctl/
 
   nixos-install --no-root-passwd --no-channel-copy --flake ".#$hostname"
 }
@@ -84,8 +75,8 @@ case "$1" in
   ;;
   
   *)
-    echo "Usage: $0 <mode> <hostname> <disk>"
     echo "Modes: format, mount, install"
+    echo "Usage: $0 <mode> <hostname> <disk>"
     exit 1
     ;;
 esac

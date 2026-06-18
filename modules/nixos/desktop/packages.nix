@@ -9,7 +9,6 @@
       enable = true;
       capSysAdmin = true;
       openFirewall = true;
-      settings.capture = "kwin";
     };
 
     scx = {

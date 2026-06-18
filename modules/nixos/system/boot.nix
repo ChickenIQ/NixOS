@@ -5,7 +5,11 @@
       limine = {
         enable = true;
         style.wallpapers = [ ];
-        secureBoot.enable = true;
+        secureBoot = {
+          enable = true;
+          autoGenerateKeys = true;
+          autoEnrollKeys.enable = true;
+        };
       };
       timeout = 1;
       efi.canTouchEfiVariables = true;
@@ -28,5 +32,4 @@
       efibootmgr --bootnext "$ENTRY" && reboot
     '')
   ];
-
 }

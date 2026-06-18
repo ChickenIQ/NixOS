@@ -24,26 +24,4 @@ rec {
         ];
       }
     );
-
-  mkHomes =
-    users:
-    lib.genAttrs users (
-      username:
-      inputs.home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit inputs; };
-        pkgs = import inputs.nixpkgs {
-          config.allowUnfree = true;
-          inherit system;
-        };
-        modules = [
-          (inputs.import-tree [ ./modules/home ])
-          {
-            home = {
-              homeDirectory = "/home/${username}";
-              inherit stateVersion username;
-            };
-          }
-        ];
-      }
-    );
 }

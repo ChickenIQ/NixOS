@@ -26,7 +26,7 @@
           directory = "/etc/nixos";
           user = "emi";
         }
-        "/etc/NetworkManager/system-connections"
+        "/etc/NetworkManager"
         "/var/lib/libvirt"
         "/var/lib/netbird"
         "/var/lib/docker"
