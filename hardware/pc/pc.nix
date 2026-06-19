@@ -1,4 +1,7 @@
+{ modulesPath, ... }:
 {
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+
   networking = {
     firewall.allowedUDPPorts = [ 9 ];
     interfaces.enp9s0.wakeOnLan.enable = true;

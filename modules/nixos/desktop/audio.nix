@@ -4,8 +4,8 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-    extraLadspaPackages = [ pkgs.rnnoise-plugin ];
     extraLv2Packages = [ pkgs.lsp-plugins ];
+    extraLadspaPackages = [ pkgs.rnnoise-plugin ];
     extraConfig.pipewire."99-input-denoising"."context.modules" = [
       {
         "name" = "libpipewire-module-filter-chain";
