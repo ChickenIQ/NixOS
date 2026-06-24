@@ -48,6 +48,7 @@
   };
 
   systemd = {
+    sleep.settings.Sleep.AllowHibernation = "no";
     services.NetworkManager-wait-online.enable = false;
     suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
   };

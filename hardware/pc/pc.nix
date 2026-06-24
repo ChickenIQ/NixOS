@@ -2,15 +2,14 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
+  swapDevices = [ { device = "/dev/disk/by-partlabel/swap"; } ];
+
   networking = {
     firewall.allowedUDPPorts = [ 9 ];
-    interfaces.enp9s0.wakeOnLan.enable = true;
-  };
-
-  fileSystems."/home/emi/Games" = {
-    fsType = "ntfs3";
-    options = [ "nofail" ];
-    device = "/dev/disk/by-label/Games";
+    interfaces = {
+      enp9s0.wakeOnLan.enable = true;
+      enp10s0.wakeOnLan.enable = true;
+    };
   };
 
   hardware = {

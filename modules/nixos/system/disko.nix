@@ -35,7 +35,6 @@
               ];
             };
             "data" = {
-              swap.swapfile.size = "16G";
               mountpoint = "/data";
               mountOptions = [
                 "compress=zstd"
@@ -59,16 +58,11 @@
   services.btrfs.autoScrub.enable = true;
 
   boot.initrd.systemd.services.reset-root = {
-    requiredBy = [ "initrd.target" ];
-    before = [ "sysroot.mount" ];
-
+    after = [ "initrd-root-device.target" ];
     unitConfig.DefaultDependencies = false;
+    requiredBy = [ "initrd.target" ];
     serviceConfig.Type = "oneshot";
-
-    after = [
-      "systemd-hibernate-resume.service"
-      "initrd-root-device.target"
-    ];
+    before = [ "sysroot.mount" ];
 
     path = with pkgs; [
       util-linuxMinimal

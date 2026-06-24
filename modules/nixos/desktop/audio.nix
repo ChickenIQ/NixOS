@@ -31,12 +31,14 @@
                 "plugin" = "http://lsp-plug.in/plugins/lv2/gate_mono";
                 "control" = {
                   "gh" = 1;
+                  "shpm" = 2;
+                  "shpf" = 150;
                   "at" = 5;
                   "rt" = 120;
                   "hold" = 80;
                   "gr" = 0.001;
-                  "gt" = 0.003;
-                  "ht" = 0.0015;
+                  "gt" = 0.006;
+                  "ht" = 0.003;
                 };
               }
             ];
