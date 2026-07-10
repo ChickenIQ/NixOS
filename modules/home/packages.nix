@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
+    faugus-launcher
     moonlight-qt
     mangohud
   ];

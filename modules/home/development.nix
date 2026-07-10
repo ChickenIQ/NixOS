@@ -66,5 +66,8 @@
     vcluster
     kubelogin-oidc
     kubernetes-helm
+
+    # Rust
+    rustup
   ];
 }

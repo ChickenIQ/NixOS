@@ -13,11 +13,13 @@
         }
         {
           file = "/etc/ssh/ssh_host_rsa_key";
-          mode = "0600";
+          configureParent = true;
+          how = "symlink";
         }
         {
           file = "/etc/ssh/ssh_host_ed25519_key";
-          mode = "0600";
+          configureParent = true;
+          how = "symlink";
         }
       ];
 

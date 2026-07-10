@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   services = {
     bpftune.enable = true;
     flatpak.enable = true;
@@ -9,6 +8,7 @@
       enable = true;
       capSysAdmin = true;
       openFirewall = true;
+      package = pkgs.unstable.sunshine;
     };
 
     scx = {
