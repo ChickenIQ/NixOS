@@ -3,7 +3,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
     preservation.url = "github:nix-community/preservation";
     import-tree.url = "github:vic/import-tree";
 
@@ -12,9 +12,34 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:nix-community/stylix/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/v5.0.0-beta.8";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-wrappers = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     disko = {
@@ -28,32 +53,5 @@
     };
   };
 
-  outputs =
-    inputs:
-    let
-      inherit (inputs.nixpkgs) lib;
-      system = "x86_64-linux";
-      stateVersion = "25.11";
-      hosts = [
-        "g15"
-        "pc"
-      ];
-    in
-    {
-      nixosConfigurations = lib.genAttrs hosts (
-        hostname:
-        lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          inherit system;
-          modules = [
-            { system.stateVersion = stateVersion; }
-            { networking.hostName = hostname; }
-            (inputs.import-tree [
-              ./hardware/${hostname}
-              ./modules/nixos
-            ])
-          ];
-        }
-      );
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }

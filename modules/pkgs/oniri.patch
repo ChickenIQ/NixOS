@@ -1,0 +1,80 @@
+diff --git a/src/main.rs b/src/main.rs
+index b60871d..479d59e 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -235,6 +235,27 @@ fn main() {
+                 if let Some(old_ws) = previous_ws
+                     && old_ws != ws
+                 {
++                    // If there's one window left in the previous workspace, maximize it
++                    // (unless we're running in "first-only" mode).
++                    if !first_only
++                        && let Some(old_windows) = workspace_windows.get(&old_ws)
++                        && old_windows.len() == 1
++                    {
++                        let remaining = old_windows[0];
++
++                        if !size_compare::is_maximized(&state, &outputs, remaining, tol_h, tol_w) {
++                            window::maximize_window(
++                                &mut action_socket,
++                                &state,
++                                remaining,
++                                edges_maximizing,
++                            )
++                            .unwrap_or_else(|error| {
++                                error!("{error:?}");
++                            });
++                        }
++                    }
++
+                     // Track windows that have moved workspaces until their tile size is properly recalculated
+                     // in the "WindowLayoutsChanged" event
+                     // This avoids comparing a window's old layout size against its new workspace output's resolution
+@@ -287,28 +308,6 @@ fn main() {
+                                 });
+                             }
+                         }
+-                        // If there's one window left in the previous workspace, maximize it
+-                        // (unless we're running in "first-only" mode).
+-                        else if !first_only
+-                            && let Some(old_windows) = workspace_windows.get(&old_ws)
+-                            && old_windows.len() == 1
+-                        {
+-                            let remaining = old_windows[0];
+-
+-                            if !size_compare::is_maximized(
+-                                &state, &outputs, remaining, tol_h, tol_w,
+-                            ) {
+-                                window::maximize_window(
+-                                    &mut action_socket,
+-                                    &state,
+-                                    remaining,
+-                                    edges_maximizing,
+-                                )
+-                                .unwrap_or_else(|error| {
+-                                    error!("{error:?}");
+-                                });
+-                            }
+-                        }
+                     }
+                 }
+             }
+diff --git a/src/window.rs b/src/window.rs
+index 8fc16e7..b40db14 100644
+--- a/src/window.rs
++++ b/src/window.rs
+@@ -28,6 +28,14 @@ pub fn maximize_window(
+             .windows
+             .values()
+             .find_map(|window| window.is_focused.then_some(window.id))
++            .or_else(|| {
++                state
++                    .workspaces
++                    .workspaces
++                    .values()
++                    .find(|workspace| workspace.is_focused)
++                    .and_then(|workspace| workspace.active_window_id)
++            })
+         else {
+             return Ok(());
+         };
