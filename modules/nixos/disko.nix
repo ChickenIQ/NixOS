@@ -7,7 +7,6 @@
 
       disko.devices.disk.main = {
         device = "/dev/diskoTarget";
-        imageSize = "24G";
         content = {
           type = "gpt";
           partitions = {
@@ -32,6 +31,7 @@
                     "noatime"
                   ];
                 };
+
                 "nix" = {
                   mountpoint = "/nix";
                   mountOptions = [
@@ -39,6 +39,7 @@
                     "noatime"
                   ];
                 };
+
                 "${self.meta.persistence.name}" = {
                   mountpoint = self.meta.persistence.directory;
                   mountOptions = [
@@ -46,6 +47,7 @@
                     "noatime"
                   ];
                 };
+
                 "home" = {
                   mountpoint = "/home";
                   mountOptions = [

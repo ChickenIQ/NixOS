@@ -5,24 +5,6 @@
   lib,
   ...
 }:
-let
-  persistenceModule =
-    { options, lib, ... }:
-    {
-      options.persistence = lib.mkOption {
-        type = options.preservation.preserveAt.type.nestedTypes.elemType or lib.types.deferredModule;
-        description = "State stored on the persistent filesystem";
-        default = { };
-      };
-
-      config = lib.optionalAttrs (options ? preservation.preserveAt) {
-        preservation.preserveAt.${self.meta.persistence.name} = lib.mkMerge [
-          { persistentStoragePath = lib.mkForce self.meta.persistence.directory; }
-          (lib.mkAliasDefinitions options.persistence)
-        ];
-      };
-    };
-in
 {
   options.flake.hosts = lib.mkOption {
     type = lib.types.lazyAttrsOf lib.types.deferredModule;
@@ -44,7 +26,6 @@ in
 
         modules = [
           (self.hosts.default or { })
-          persistenceModule
           hostModule
           {
             networking.hostName = hostname;

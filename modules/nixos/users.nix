@@ -10,7 +10,7 @@
           uid = 1000;
           isNormalUser = true;
           extraGroups = [ "wheel" ];
-          hashedPassword = self.meta.user.password;
+          hashedPassword = self.meta.user.hashedPassword;
           openssh.authorizedKeys.keys = self.meta.user.keys;
           description = lib.strings.toSentenceCase self.meta.user.name;
         };

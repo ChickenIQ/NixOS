@@ -4,9 +4,6 @@
     {
       imports = [ inputs.nix-index.nixosModules.nix-index ];
 
-      environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
-      system.stateVersion = self.meta.stateVersion;
-
       programs = {
         nix-index-database.comma.enable = true;
         nh = {
@@ -27,9 +24,12 @@
 
       persistence.directories = [
         {
-          user = self.meta.user.name;
           directory = "/etc/nixos";
+          user = self.meta.user.name;
         }
       ];
+
+      system.stateVersion = self.meta.stateVersion;
+      environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
     };
 }

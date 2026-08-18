@@ -7,6 +7,7 @@
       noctalia
       programs
       opencode
+      mangohud
       flatpak
       gaming
       stylix
@@ -20,11 +21,10 @@
     imports = with self.nixosModules; [
       network-manager
       display-manager
-      pipewire-noise
-      package-compat
       preservation
       home-manager
       reset-root
+      programs
       pipewire
       security
       netbird
@@ -32,7 +32,6 @@
       limine
       kernel
       tuning
-      utils
       steam
       disko
       users

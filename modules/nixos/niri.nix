@@ -28,9 +28,9 @@
       };
 
       environment = {
-        systemPackages = [
-          pkgs.lxqt.lxqt-menu-data
-          pkgs.xwayland-satellite
+        systemPackages = with pkgs; [
+          lxqt.lxqt-menu-data
+          xwayland-satellite
         ];
 
         etc."xdg/menus/applications.menu".source =
