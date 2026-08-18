@@ -34,7 +34,10 @@
           };
 
           widget = {
-            workspaces.empty_color = "on_surface_variant";
+            workspaces = {
+              hide_when_empty = true;
+              show_labels = false;
+            };
             network.show_label = false;
             volume.show_label = false;
 
