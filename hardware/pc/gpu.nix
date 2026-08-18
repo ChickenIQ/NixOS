@@ -14,7 +14,6 @@
 
   environment.etc."lact/config.yaml".text = ''
     version: 5
-    current_profile: null
 
     daemon:
       log_level: info

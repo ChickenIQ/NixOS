@@ -28,7 +28,9 @@
           directory = "/etc/nixos";
           user = "emi";
         }
+        "/var/lib/systemd/timers"
         "/etc/NetworkManager"
+        "/var/lib/bluetooth"
         "/var/lib/libvirt"
         "/var/lib/netbird"
         "/var/lib/docker"

@@ -16,7 +16,6 @@
 
     fish = {
       shellInitLast = ''
-        omnictl completion fish | source
         kubectl completion fish | source
         talosctl completion fish | source
       '';
@@ -32,9 +31,10 @@
 
   home.packages = with pkgs.unstable; [
     # General
+    gcc
     sops
-    blender
     gnumake
+    opencode
 
     # IDEs
     jetbrains.idea
@@ -45,29 +45,16 @@
     nixd
     nixfmt
 
-    # C/C++
-    gcc
-    gdb
-
     # Go
     go
     gopls
     delve
-    grpc-tools
-    protoc-gen-go
-    protoc-gen-go-grpc
 
     # K8s
     fluxcd
     kubectl
-    kubectx
-    omnictl
     talosctl
-    vcluster
     kubelogin-oidc
     kubernetes-helm
-
-    # Rust
-    rustup
   ];
 }

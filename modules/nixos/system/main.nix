@@ -20,8 +20,8 @@
     users.emi.imports = [ (inputs.import-tree "${inputs.self}/modules/home") ];
     sharedModules = with inputs; [
       { home.stateVersion = config.system.stateVersion; }
+      flatpak.homeManagerModules.nix-flatpak
       nvf.homeManagerModules.default
-      flatpak.homeModules.default
     ];
   };
 

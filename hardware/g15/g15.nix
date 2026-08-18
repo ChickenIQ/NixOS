@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   services.thermald.enable = true;
   boot = {

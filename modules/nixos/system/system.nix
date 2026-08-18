@@ -20,7 +20,6 @@
       "vm.max_map_count" = 2147483642;
     };
 
-    zswap.enable = true;
     kernelPackages = pkgs.linuxPackages_zen;
   };
 
@@ -53,6 +52,7 @@
     suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
   };
 
+  security.rtkit.enable = true;
   time.timeZone = "Europe/Bucharest";
   security.sudo.extraConfig = "Defaults lecture=never,timestamp_type=global,pwfeedback";
 }
