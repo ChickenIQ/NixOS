@@ -21,6 +21,9 @@
         tree
         dig
         rar
+        bat
+        jq
+        yq
       ];
     };
 }
