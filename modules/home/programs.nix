@@ -6,7 +6,6 @@
       xdg.mimeApps.enable = true;
       home.packages = with pkgs; [
         nvtopPackages.full
-        self.helium
         fastfetch
         btop
       ];

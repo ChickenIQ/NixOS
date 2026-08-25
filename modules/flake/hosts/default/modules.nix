@@ -10,10 +10,10 @@
       mangohud
       flatpak
       gaming
+      helium
       stylix
       shell
       kitty
-      fish
       niri
       nvim
     ];

@@ -2,7 +2,7 @@
   flake.homeModules.development =
     { pkgs, lib, ... }:
     {
-      programs.fish.completions = lib.genAttrs [ "talosctl" "omnictl" ] (name: ''
+      programs.fish.completions = lib.genAttrs [ "talosctl" "omnictl" "velero" "fluxcd" ] (name: ''
         source ${builtins.getAttr name pkgs.unstable}/share/fish/vendor_completions.d/${name}.fish
       '');
 
@@ -37,10 +37,12 @@
 
           # K8s
           fluxcd
+          velero
           kubectl
           kubectx
           omnictl
           talosctl
+          kustomize
           kubelogin-oidc
           kubernetes-helm
         ];

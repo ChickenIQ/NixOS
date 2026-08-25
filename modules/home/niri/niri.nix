@@ -21,8 +21,8 @@
         layout = {
           default-column-width.proportion = 0.5;
           empty-workspace-above-first = true;
-          focus-ring.width = 2;
-          gaps = 10;
+          focus-ring.width = 1;
+          gaps = 5;
 
           preset-column-widths = [
             { proportion = 0.5; }

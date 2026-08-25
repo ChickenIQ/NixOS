@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
@@ -13,7 +13,7 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia/v5.0.0-beta.8";
+      url = "github:noctalia-dev/noctalia/v5.0.0-beta.9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
