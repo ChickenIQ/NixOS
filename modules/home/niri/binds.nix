@@ -59,10 +59,10 @@
         "Mod+L".action.spawn-sh = noctalia "session lock";
 
         "Mod+Return".action.spawn = [ (lib.getExe config.programs.kitty.package) ];
+        "Mod+Insert".action.spawn-sh = lib.getExe' pkgs.self.gsr-tools "gsr-save";
         "Mod+E".action.spawn = [ (lib.getExe pkgs.kdePackages.dolphin) ];
         "Mod+C".action.spawn-sh = flatpak "com.discordapp.Discord";
         "Mod+W".action.spawn = [ (lib.getExe pkgs.self.helium) ];
-        "Mod+Insert".action.spawn-sh = "gsr-save";
       };
     };
 }
