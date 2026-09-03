@@ -8,12 +8,13 @@
     }:
     let
       noctalia = cmd: "${lib.getExe config.programs.noctalia.package} msg ${cmd}";
+      tweaks = name: args: "${lib.getExe' pkgs.self.niri-tweaks name} ${args}";
       flatpak = app: "flatpak run ${app}";
     in
     {
       programs.niri.settings.binds = {
-        "Mod+Shift+S".action.screenshot.show-pointer = false;
-        "Print".action.screenshot.show-pointer = false;
+        "Mod+Shift+S".action.spawn-sh = noctalia "screenshot-region";
+        "Print".action.spawn-sh = noctalia "screenshot-region";
 
         "XF86AudioLowerVolume".action.spawn-sh = noctalia "volume-down";
         "XF86AudioRaiseVolume".action.spawn-sh = noctalia "volume-up";
@@ -47,12 +48,12 @@
         "Mod+BracketRight".action.set-column-width = "+10%";
         "Mod+BracketLeft".action.set-column-width = "-10%";
 
+        "Mod+Q".action.spawn-sh = tweaks "niri_close_helper.sh" "--left";
         "Mod+Ctrl+F".action.toggle-window-floating = [ ];
         "Mod+R".action.switch-preset-column-width = [ ];
         "Mod+Shift+F".action.fullscreen-window = [ ];
         "Mod+Tab".action.toggle-overview = [ ];
         "Mod+F".action.maximize-column = [ ];
-        "Mod+Q".action.close-window = [ ];
 
         "Mod+Space".action.spawn-sh = noctalia "panel-toggle launcher";
         "Mod+V".action.spawn-sh = noctalia "panel-toggle clipboard";

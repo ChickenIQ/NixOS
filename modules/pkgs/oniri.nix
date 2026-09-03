@@ -4,14 +4,14 @@
     {
       packages.oniri = pkgs.rustPlatform.buildRustPackage rec {
         pname = "oniri";
-        version = "1.3.4";
-        cargoHash = "sha256-aoqtaLKGflXyg+l3f1MYSOqLJILhnY8gS8ttC0wB7iw=";
+        version = "1.3.5";
+        cargoHash = "sha256-aqFIF5DemmKZs5rTF9c8mFts5emCmeNk5UYEKCl5ilQ=";
 
         src = pkgs.fetchFromGitHub {
           repo = "oniri";
           owner = "Antiz96";
           tag = "v${version}";
-          hash = "sha256-kJTE873WwM9E8SCedACCDjTWJ4sdDsFOuIQw2KLHK5s=";
+          hash = "sha256-BT5KVE5zT2z4gO2GLYV+ZtCQ8e9nUegxOnhkoywnrDo=";
         };
 
         meta = {
