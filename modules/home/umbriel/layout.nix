@@ -30,9 +30,10 @@
 
           {
             match = {
-              app_id = "^steam$";
               title = "^notificationtoasts_\\d+_desktop$";
+              app_id = "^steam$";
             };
+
             default_position = {
               anchor = "bottom_right";
               x = 10;

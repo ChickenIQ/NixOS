@@ -7,6 +7,7 @@
       stylix = {
         enable = true;
         overlays.enable = false;
+        fonts.sizes.applications = 10;
 
         base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
         image = ./wallpaper.png;
@@ -25,5 +26,10 @@
           size = 24;
         };
       };
+
+      home.packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.hack
+      ];
     };
 }
