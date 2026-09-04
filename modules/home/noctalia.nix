@@ -59,6 +59,10 @@
             clipboard_auto_paste = "off";
             setup_wizard_enabled = false;
             polkit_agent = true;
+            screenshot = {
+              save_to_file = false;
+              show_cursor = true;
+            };
           };
 
           osd.kinds.media = false;
