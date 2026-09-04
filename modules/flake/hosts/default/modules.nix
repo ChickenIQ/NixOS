@@ -3,30 +3,31 @@
   flake.hosts."default" = {
     home-manager.users."${self.meta.user.name}".imports = with self.homeModules; [
       development
+      k8s-tools
       kde-tools
       noctalia
       programs
       opencode
       mangohud
       flatpak
+      umbriel
       gaming
-      helium
       stylix
+      helium
       shell
       kitty
-      niri
       nvim
     ];
 
     imports = with self.nixosModules; [
       network-manager
-      display-manager
       preservation
       home-manager
       reset-root
       programs
       pipewire
       security
+      desktop
       netbird
       openssh
       limine
@@ -35,7 +36,6 @@
       steam
       disko
       users
-      niri
       nix
     ];
   };

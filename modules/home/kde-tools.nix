@@ -15,7 +15,15 @@
       ];
 
       xdg = {
-        mimeApps.defaultApplications."inode/directory" = [ "org.kde.dolphin.desktop" ];
+        mimeApps = {
+          defaultApplicationPackages = [ pkgs.qview ];
+          defaultApplications = {
+            "inode/directory" = [ "org.kde.dolphin.desktop" ];
+            "application/x-jar" = [ "org.kde.ark.desktop" ];
+            "text/plain" = [ "org.kde.kate.desktop" ];
+          };
+        };
+
         desktopEntries."org.kde.kwrite" = {
           noDisplay = true;
           name = "KWrite";

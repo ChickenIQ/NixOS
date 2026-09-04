@@ -3,7 +3,12 @@
     { pkgs, ... }:
     {
       programs.mpv.enable = true;
-      xdg.mimeApps.enable = true;
+
+      xdg.mimeApps = {
+        enable = true;
+        defaultApplicationPackages = [ pkgs.mpv ];
+      };
+
       home.packages = with pkgs; [
         nvtopPackages.full
         fastfetch

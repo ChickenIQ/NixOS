@@ -8,6 +8,7 @@
       programs.noctalia = {
         enable = true;
         systemd.enable = true;
+
         settings = {
           bar.default = {
             dead_zone.actions.right = "none";

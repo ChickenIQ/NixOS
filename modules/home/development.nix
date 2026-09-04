@@ -1,51 +1,28 @@
 {
   flake.homeModules.development =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
-      programs.fish.completions = lib.genAttrs [ "talosctl" "omnictl" "velero" "fluxcd" ] (name: ''
-        source ${builtins.getAttr name pkgs.unstable}/share/fish/vendor_completions.d/${name}.fish
-      '');
+      home.packages = with pkgs.unstable; [
+        # General
+        git
+        gcc
+        sops
+        gnumake
 
-      home = {
-        shellAliases = {
-          k = "kubectl";
-          kns = "kubens";
-          kctx = "kubectx";
-        };
+        # Nix
+        nixd
+        nixfmt
 
-        packages = with pkgs.unstable; [
-          # General
-          git
-          gcc
-          sops
-          vscode
-          gnumake
+        # Go
+        go
+        gopls
+        delve
 
-          # IDEs
-          jetbrains.idea
-          jetbrains.clion
-          jetbrains.goland
-
-          # Nix
-          nixd
-          nixfmt
-
-          # Go
-          go
-          gopls
-          delve
-
-          # K8s
-          fluxcd
-          velero
-          kubectl
-          kubectx
-          omnictl
-          talosctl
-          kustomize
-          kubelogin-oidc
-          kubernetes-helm
-        ];
-      };
+        # IDEs
+        vscode
+        jetbrains.idea
+        jetbrains.clion
+        jetbrains.goland
+      ];
     };
 }

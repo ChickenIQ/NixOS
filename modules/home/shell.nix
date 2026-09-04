@@ -1,6 +1,6 @@
 {
   flake.homeModules.shell =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       home = {
         shellAliases.ls = "eza -a --color=auto --group-directories-first";
@@ -14,6 +14,7 @@
         fish = {
           enable = true;
           functions.fish_greeting = "";
+
           binds = {
             "ctrl-up".command = "";
             "ctrl-down".command = "";
@@ -24,5 +25,8 @@
           };
         };
       };
+
+      xdg.dataFile."fish/vendor_completions.d".source =
+        "${config.home.path}/share/fish/vendor_completions.d";
     };
 }
