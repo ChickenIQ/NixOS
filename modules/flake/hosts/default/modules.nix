@@ -26,13 +26,11 @@
       reset-root
       programs
       pipewire
-      security
       desktop
       netbird
       openssh
       limine
       kernel
-      tuning
       steam
       disko
       users

@@ -2,10 +2,7 @@
   flake.nixosModules.programs =
     { pkgs, ... }:
     {
-      services = {
-        flatpak.enable = true;
-        udisks2.enable = true;
-      };
+      services.flatpak.enable = true;
 
       programs = {
         nix-ld.enable = true;

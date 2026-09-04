@@ -1,8 +1,8 @@
 {
   flake.nixosModules.intel = {
     boot = {
-      kernelModules = [ "kvm-intel" ];
       kernelParams = [ "intel_iommu=on" ];
+      kernelModules = [ "kvm-intel" ];
     };
 
     hardware.cpu.intel.updateMicrocode = true;

@@ -7,14 +7,9 @@
           programs = {
             mangohud.settings.fps_limit = 235;
             umbriel.settings.output = {
-              "DP-2".vrr = "always";
               "HDMI-A-2".enabled = false;
-
+              "DP-2".vrr = "always";
             };
-            # niri.settings.outputs = {
-            #   "DP-2".variable-refresh-rate = true;
-            #   "HDMI-A-2".enable = false;
-            # };
           };
         }
       ];

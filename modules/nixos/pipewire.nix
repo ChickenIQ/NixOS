@@ -2,7 +2,6 @@
   flake.nixosModules.pipewire =
     { pkgs, ... }:
     {
-
       services.pipewire = {
         enable = true;
         alsa.enable = true;
@@ -11,6 +10,7 @@
           rnnoise-plugin
           self.khip
         ];
+
         extraConfig.pipewire."99-input-denoising"."context.modules" = [
           {
             "name" = "libpipewire-module-filter-chain";

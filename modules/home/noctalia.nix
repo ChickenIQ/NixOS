@@ -6,9 +6,8 @@
       home.packages = [ pkgs.ddcutil ];
 
       programs.noctalia = {
-        enable = true;
         systemd.enable = true;
-
+        enable = true;
         settings = {
           bar.default = {
             dead_zone.actions.right = "none";
