@@ -19,7 +19,7 @@
         delve
 
         # IDEs
-        vscode
+        pkgs.vscode
         jetbrains.idea
         jetbrains.clion
         jetbrains.goland

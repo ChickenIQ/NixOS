@@ -6,7 +6,7 @@
         corner_radius = 5;
       };
 
-      layout.gap = 4;
+      layout.gap = 5;
 
       animation = {
         beziers.smoothSpring = [

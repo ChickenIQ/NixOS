@@ -60,7 +60,7 @@
             polkit_agent = true;
             screenshot = {
               save_to_file = false;
-              show_cursor = true;
+              show_cursor = false;
             };
           };
 
