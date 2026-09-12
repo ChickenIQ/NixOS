@@ -5,7 +5,6 @@
     bluetooth
     sunshine
     libvirt
-    docker
     amd
   ];
 }

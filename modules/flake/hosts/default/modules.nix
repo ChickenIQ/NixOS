@@ -29,6 +29,7 @@
       desktop
       netbird
       openssh
+      podman
       limine
       kernel
       steam

@@ -1,11 +1,7 @@
 {
   flake.homeModules.umbriel = {
     programs.umbriel.settings = {
-      appearance = {
-        border_width = 2;
-        corner_radius = 5;
-      };
-
+      appearance.corner_radius = 5;
       layout.gap = 5;
 
       animation = {

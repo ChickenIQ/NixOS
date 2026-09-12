@@ -12,21 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    umbriel = {
-      url = "github:noctalia-dev/umbriel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia-greeter = {
-      url = "github:noctalia-dev/noctalia-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/v5.0.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stylix = {
       url = "github:nix-community/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +34,21 @@
 
     nvf = {
       url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter/v1.3.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/v5.0.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

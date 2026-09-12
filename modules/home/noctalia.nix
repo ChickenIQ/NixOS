@@ -11,7 +11,6 @@
         settings = {
           bar.default = {
             dead_zone.actions.right = "none";
-            margin_opposite_edge = 0;
             widget_spacing = 10;
             margin_edge = 5;
             margin_ends = 5;
@@ -40,11 +39,6 @@
             };
             network.show_label = false;
             volume.show_label = false;
-
-            taskbar = {
-              only_active_workspace = true;
-              show_workspace_label = false;
-            };
           };
 
           theme.templates = {
@@ -58,15 +52,10 @@
             clipboard_auto_paste = "off";
             setup_wizard_enabled = false;
             polkit_agent = true;
-            screenshot = {
-              save_to_file = false;
-              show_cursor = false;
-            };
+            screenshot.save_to_file = false;
           };
 
-          osd.kinds.media = false;
           audio.enable_overdrive = true;
-          desktop_widgets.enabled = false;
           control_center.sidebar = "full";
           brightness.enable_ddcutil = true;
         };

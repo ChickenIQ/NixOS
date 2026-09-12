@@ -18,6 +18,9 @@
         gopls
         delve
 
+        # Rust
+        rustup
+
         # IDEs
         pkgs.vscode
         jetbrains.idea
