@@ -6,10 +6,10 @@
       layout = {
         scrolling = {
           center_underfull_strip = false;
-          default_width_fraction = 0.5;
+          default_extent_fraction = 0.5;
         };
 
-        width_presets = [
+        extent_presets = [
           0.5
           1.0
         ];

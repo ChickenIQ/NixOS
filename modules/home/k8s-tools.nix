@@ -13,6 +13,7 @@
           kubernetes-helm
           kubectl-linstor
           kubelogin-oidc
+          telepresence2
           cilium-cli
           kustomize
           talosctl

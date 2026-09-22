@@ -16,7 +16,11 @@
 
       xdg = {
         mimeApps = {
-          defaultApplicationPackages = [ pkgs.qview ];
+          defaultApplicationPackages = with pkgs; [
+            kdePackages.ark
+            qview
+          ];
+
           defaultApplications = {
             "inode/directory" = [ "org.kde.dolphin.desktop" ];
             "application/x-jar" = [ "org.kde.ark.desktop" ];

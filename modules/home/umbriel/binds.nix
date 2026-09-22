@@ -40,14 +40,14 @@
 
         "Mod+Shift+Down" = "window-move-to-workspace-next";
         "Mod+Shift+Up" = "window-move-to-workspace-previous";
-        "Mod+Bracketright" = "window-modify-width:0.1";
-        "Mod+Bracketleft" = "window-modify-width:-0.1";
+        "Mod+Bracketright" = "window-modify-primary-extent:0.1";
+        "Mod+Bracketleft" = "window-modify-primary-extent:-0.1";
 
         "Mod+Shift+F" = "window-toggle-fullscreen";
         "Mod+Ctrl+F" = "window-toggle-floating";
         "Mod+F" = "window-toggle-maximize";
 
-        "Mod+R" = "window-cycle-width";
+        "Mod+R" = "window-cycle-primary-extent";
         "Mod+Q" = "window-close";
 
         "Alt+Shift+Tab" = "window-focus-previous";
