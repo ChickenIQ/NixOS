@@ -1,13 +1,10 @@
 {
-  flake.nixosModules.nvidia =
-    { config, ... }:
-    {
-      hardware.nvidia = {
-        open = true;
-        nvidiaSettings = false;
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
-      };
-
-      services.xserver.videoDrivers = [ "nvidia" ];
+  flake.nixosModules.nvidia = {
+    hardware.nvidia = {
+      open = true;
+      nvidiaSettings = false;
     };
+
+    services.xserver.videoDrivers = [ "nvidia" ];
+  };
 }

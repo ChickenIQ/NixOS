@@ -8,7 +8,7 @@
           "vm.swappiness" = 10;
         };
 
-        kernelPackages = pkgs.linuxPackages_zen;
+        kernelPackages = pkgs.unstable.linuxPackages_zen;
       };
     };
 }
