@@ -15,13 +15,18 @@
         text = ''
           action="$1"; host="$2"; disk="''${3:-}"
 
-          [ -b "$disk" ] || exit 1
-          ln -sf "$disk" /dev/diskoTarget
-
           case "$action" in
-            format) mode="destroy,format,mount" ;;
-            mount) mode="mount" ;;
-            *) exit 1 ;;
+            format)
+              [ -b "$disk" ] || exit 1
+              mode="destroy,format,mount"
+              ln -sf "$disk" /dev/diskoTarget
+              ;;
+            mount)
+              mode="mount"
+              ;;
+            *)
+              exit 1
+              ;;
           esac
 
           disko --mode "$mode" --flake "${self}#$host"
