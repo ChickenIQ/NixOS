@@ -9,7 +9,7 @@
         };
 
         kernelModules = [ "ntsync" ];
-        kernelPackages = pkgs.linuxPackages_latest;
+        kernelPackages = pkgs.unstable.linuxPackages_latest;
       };
     };
 }
