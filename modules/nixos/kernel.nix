@@ -8,6 +8,7 @@
           "vm.swappiness" = 10;
         };
 
+        kernelModules = [ "ntsync" ];
         kernelPackages = pkgs.linuxPackages_latest;
       };
     };

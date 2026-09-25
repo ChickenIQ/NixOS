@@ -6,7 +6,11 @@
 
       swapDevices = [ { device = "/dev/disk/by-partlabel/swap"; } ];
       systemd.sleep.settings.Sleep.AllowHibernation = "no";
-      boot.zswap.enable = true;
+
+      boot = {
+        kernelModules = [ "nct6799" ];
+        zswap.enable = true;
+      };
 
       environment.etc."lact/config.yaml".text = ''
         version: 5
