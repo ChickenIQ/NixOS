@@ -8,7 +8,7 @@
       systemd.sleep.settings.Sleep.AllowHibernation = "no";
 
       boot = {
-        kernelModules = [ "nct6799" ];
+        kernelModules = [ "nct6775" ];
         zswap.enable = true;
       };
 
