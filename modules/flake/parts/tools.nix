@@ -25,6 +25,7 @@
               mode="mount"
               ;;
             *)
+              echo "Usage: disko {format|mount} <host> [disk]" >&2
               exit 1
               ;;
           esac
