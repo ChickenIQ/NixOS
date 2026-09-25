@@ -1,3 +1,4 @@
+{ self, ... }:
 {
   perSystem =
     {
@@ -23,13 +24,12 @@
             *) exit 1 ;;
           esac
 
-          disko --mode "$mode" --flake ".#$host"
+          disko --mode "$mode" --flake "${self}#$host"
         '';
       };
 
       installer = pkgs.writeShellApplication {
         name = "installer";
-
         runtimeInputs = [
           pkgs.nixos-install-tools
           disko
@@ -39,7 +39,7 @@
           host="$1" disk="''${2:-}"
 
           [ -z "$disk" ] || disko format "$host" "$disk"
-          nixos-install --no-root-passwd --no-channel-copy --flake ".#$host"
+          nixos-install --no-root-passwd --no-channel-copy --flake "${self}#$host"
         '';
       };
     in
