@@ -33,9 +33,6 @@
                   focused = base0D;
                   unfocused = base03;
 
-                  scratchpad_focused = base0D;
-                  scratchpad_unfocused = base03;
-
                   outer = base01;
                 };
 
@@ -45,6 +42,7 @@
                   badge = base0D;
                 };
               };
+
               input = lib.mkIf (config.stylix.cursor != null) {
                 cursor = {
                   theme = config.stylix.cursor.name;

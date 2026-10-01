@@ -50,8 +50,7 @@
         "Mod+R" = "window-cycle-primary-extent";
         "Mod+Q" = "window-close";
 
-        "Alt+Shift+Tab" = "window-focus-previous";
-        "Alt+Tab" = "window-focus-next";
+        "Alt+Tab" = "spawn:${noctalia "window-switcher hold"}";
         "Mod+Tab" = {
           action = "overview-toggle";
           repeat = false;
