@@ -33,6 +33,7 @@
           XDG_CONFIG_DIRS = "${kdeGlobals}:/app/etc/xdg:/etc/xdg";
           QT_QPA_PLATFORMTHEME = config.qt.platformTheme.name;
           QT_STYLE_OVERRIDE = config.qt.style.name;
+          PLASMA_INTEGRATION_USE_PORTAL = "1";
         };
       };
 

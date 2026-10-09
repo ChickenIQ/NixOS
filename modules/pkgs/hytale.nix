@@ -8,19 +8,15 @@
 
         src = pkgs.fetchurl {
           url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-          hash = "sha256-2g3fugalO3oTOXUV+YiaynSFRYSBrzd7lQty/c8LBIg=";
+          hash = "sha256-V8Wh4sHQhFQD6AI10EMZqqGHp6bszm+qNKYjUzZDG5w=";
         };
 
+        installPhase = "cp $src $out";
         dontUnpack = true;
         dontFixup = true;
 
-        installPhase = ''
-          cp $src $out
-        '';
-
         passthru = {
           appId = "com.hypixel.HytaleLauncher";
-
           updateScript = pkgs.nix-update-script {
             extraArgs = [
               "--version=skip"

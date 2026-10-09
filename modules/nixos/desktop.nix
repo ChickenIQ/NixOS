@@ -8,6 +8,8 @@
         umbriel.nixosModules.default
       ];
 
+      systemd.user.services.umbriel.environment.TZDIR = "/etc/zoneinfo";
+
       services = {
         gnome.gnome-keyring.enable = true;
         udisks2.enable = true;
