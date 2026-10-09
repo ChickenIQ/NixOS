@@ -2,8 +2,9 @@
   flake.homeModules.gaming =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [
+      home.packages = with pkgs.unstable; [
         faugus-launcher
+        umu-launcher
         moonlight-qt
       ];
 

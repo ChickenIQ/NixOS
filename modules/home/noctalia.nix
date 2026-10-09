@@ -49,10 +49,16 @@
           shell = {
             panel.open_near_click_control_center = true;
             clipboard_confirm_clear_history = false;
+            screenshot.save_to_file = false;
             clipboard_auto_paste = "off";
             setup_wizard_enabled = false;
             polkit_agent = true;
-            screenshot.save_to_file = false;
+
+            window_switcher = {
+              current_workspace_only = true;
+              show_all_outputs = false;
+              mru = true;
+            };
           };
 
           audio.enable_overdrive = true;

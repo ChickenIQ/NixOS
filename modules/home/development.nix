@@ -21,6 +21,9 @@
         # Rust
         rustup
 
+        # Python
+        python3
+
         # IDEs
         pkgs.vscode
         jetbrains.idea

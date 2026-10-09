@@ -3,6 +3,7 @@
   flake.hosts."default" = {
     home-manager.users."${self.meta.user.name}".imports = with self.homeModules; [
       development
+      claude-code
       k8s-tools
       kde-tools
       noctalia

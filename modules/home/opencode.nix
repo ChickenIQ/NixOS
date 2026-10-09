@@ -14,7 +14,7 @@
           * Do not explain reasoning unless asked.
           * Avoid repetition and unnecessary context.
           * Prefer delegating non-trivial, self-contained work to the `luna` subagent. Keep trivial tasks local when delegation overhead would cost more.
-          * Review and verify Luna's results before accepting them. If Lunaa fails or cannot complete the task, finish it with the primary agent.
+          * Review and verify Luna's results before accepting them. If Luna fails or cannot complete the task, finish it with the primary agent.
 
           ## Code Changes
 

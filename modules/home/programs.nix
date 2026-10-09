@@ -11,6 +11,7 @@
 
       home.packages = with pkgs; [
         nvtopPackages.full
+        wl-clipboard
         fastfetch
         btop
       ];
