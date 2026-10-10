@@ -7,7 +7,10 @@
       ...
     }:
     let
-      scheme = lib.replaceStrings [ " " ] [ "" ] config.lib.stylix.colors.scheme;
+      scheme = lib.concatStrings (
+        lib.filter lib.isString (builtins.split "[^a-zA-Z]" config.lib.stylix.colors.scheme)
+      );
+
       kdeGlobals = pkgs.runCommand "kde-config" { } ''
         install -Dm444 ${config.home.path}/share/color-schemes/${scheme}.colors $out/kdeglobals
       '';

@@ -19,7 +19,10 @@
       nix = {
         channel.enable = false;
         optimise.automatic = true;
-        settings.experimental-features = "nix-command flakes";
+        settings.experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
       };
 
       persistence.directories = [

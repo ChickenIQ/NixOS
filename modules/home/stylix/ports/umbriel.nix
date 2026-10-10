@@ -37,9 +37,20 @@
                 };
 
                 overview = {
+                  badge = base0D;
                   background_tint = "${base00}30";
                   workspace_background = "${base01}44";
-                  badge = base0D;
+                };
+
+                tab_bar = {
+                  text = base04;
+                  active = base0D;
+                  urgent = base08;
+                  background = base01;
+                  urgent_text = base00;
+                  active_text = base00;
+                  active_unfocused = base03;
+                  active_unfocused_text = base05;
                 };
               };
 

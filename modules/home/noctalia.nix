@@ -1,8 +1,7 @@
 {
   flake.homeModules.noctalia =
-    { inputs, pkgs, ... }:
+    { pkgs, ... }:
     {
-      imports = [ inputs.noctalia.homeModules.default ];
       home.packages = [ pkgs.ddcutil ];
 
       programs.noctalia = {

@@ -1,19 +1,19 @@
 {
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
     preservation.url = "github:nix-community/preservation";
     import-tree.url = "github:vic/import-tree";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "github:nix-community/stylix/release-26.05";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -37,19 +37,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia-greeter = {
-      url = "github:noctalia-dev/noctalia-greeter/v1.3.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     umbriel = {
       url = "github:noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/v5.2.1";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

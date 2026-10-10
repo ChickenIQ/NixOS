@@ -2,15 +2,12 @@
   flake.nixosModules.desktop =
     { inputs, pkgs, ... }:
     {
-      imports = with inputs; [
-        noctalia-greeter.nixosModules.default
-        noctalia.nixosModules.default
-        umbriel.nixosModules.default
-      ];
+      imports = [ inputs.umbriel.nixosModules.default ];
 
       systemd.user.services.umbriel.environment.TZDIR = "/etc/zoneinfo";
 
       services = {
+        displayManager.noctalia-greeter.enable = true;
         gnome.gnome-keyring.enable = true;
         udisks2.enable = true;
         bpftune.enable = true;
@@ -37,7 +34,6 @@
       };
 
       programs = {
-        noctalia-greeter.enable = true;
         noctalia.enable = true;
         umbriel.enable = true;
       };

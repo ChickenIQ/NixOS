@@ -3,6 +3,7 @@
   perSystem =
     {
       inputs',
+      self',
       pkgs,
       lib,
       ...
@@ -14,7 +15,6 @@
 
         text = ''
           action="$1"; host="$2"; disk="''${3:-}"
-
           case "$action" in
             format)
               [ -b "$disk" ] || exit 1
@@ -43,16 +43,25 @@
 
         text = ''
           host="$1" disk="''${2:-}"
-
           [ -z "$disk" ] || disko format "$host" "$disk"
           nixos-install --no-root-passwd --no-channel-copy --flake "${self}#$host"
         '';
+      };
+
+      update-pkgs = pkgs.writeShellApplication {
+        name = "update-pkgs";
+        text = lib.concatLines (
+          lib.mapAttrsToList (
+            name: pkg: "UPDATE_NIX_ATTR_PATH=${name} ${lib.escapeShellArgs pkg.updateScript}"
+          ) (lib.filterAttrs (_: pkg: pkg ? updateScript) self'.packages)
+        );
       };
     in
     {
       apps = {
         installer.program = lib.getExe installer;
         disko.program = lib.getExe disko;
+        update-pkgs.program = lib.getExe update-pkgs;
       };
     };
 }

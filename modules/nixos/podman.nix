@@ -7,7 +7,7 @@
       virtualisation = {
         containers = {
           containersConf.settings.engine.compose_warning_logs = false;
-          registries.search = [ "docker.io" ];
+          registries.settings.unqualified-search-registries = [ "docker.io" ];
         };
 
         podman = {
