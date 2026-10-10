@@ -48,7 +48,7 @@
         '';
       };
 
-      update-pkgs = pkgs.writeShellApplication {
+      pkg-updater = pkgs.writeShellApplication {
         name = "update-pkgs";
         text = lib.concatLines (
           lib.mapAttrsToList (
@@ -59,9 +59,9 @@
     in
     {
       apps = {
+        pkg-updater.program = lib.getExe pkg-updater;
         installer.program = lib.getExe installer;
         disko.program = lib.getExe disko;
-        update-pkgs.program = lib.getExe update-pkgs;
       };
     };
 }

@@ -11,6 +11,7 @@
       };
 
       programs = {
+        nix-your-shell.enable = true;
         starship.enable = true;
         bash.enable = true;
         fzf.enable = true;

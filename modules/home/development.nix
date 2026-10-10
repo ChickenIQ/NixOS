@@ -2,9 +2,21 @@
   flake.homeModules.development =
     { pkgs, ... }:
     {
+      programs.git = {
+        enable = true;
+        settings = {
+          user = {
+            name = "ChickenIQ";
+            email = "emibenzar@gmail.com";
+          };
+          pull.rebase = true;
+          url."git@github.com:".pushInsteadOf = "https://github.com/";
+        };
+      };
+
       home.packages = with pkgs.unstable; [
         # General
-        git
+        gh
         gcc
         sops
         gnumake

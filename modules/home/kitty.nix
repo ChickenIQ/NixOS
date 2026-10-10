@@ -19,6 +19,11 @@
 
         keybindings = {
           "ctrl+shift+c" = "combine : copy_to_clipboard : clear_selection";
+          "ctrl+shift+enter" = "launch --location=split --cwd=current";
+          "ctrl+shift+right" = "neighboring_window right";
+          "ctrl+shift+left" = "neighboring_window left";
+          "ctrl+shift+down" = "neighboring_window down";
+          "ctrl+shift+up" = "neighboring_window up";
           "ctrl+shift+0" = "change_font_size all 0";
         };
 

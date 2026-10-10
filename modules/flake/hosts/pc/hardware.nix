@@ -13,7 +13,7 @@
       };
 
       environment.etc."lact/config.yaml".text = ''
-        version: 5
+        version: 7
 
         daemon:
           log_level: info
@@ -23,7 +23,7 @@
           1002:7550-1DA2:E490-0000:03:00.0:
             voltage_offset: -70
             power_cap: 250.0
-            
+
             performance_level: manual
             power_states:
               memory_clock: [2,3,4,5]

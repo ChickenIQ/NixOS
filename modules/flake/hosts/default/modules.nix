@@ -18,6 +18,7 @@
       shell
       kitty
       nvim
+      zed
     ];
 
     imports = with self.nixosModules; [

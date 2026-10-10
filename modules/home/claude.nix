@@ -28,6 +28,7 @@
           * Do not add dependencies for trivial functionality or marginal benefits.
           * Before adding a dependency, explain why it is useful and ask for approval.
           * Do not add it until explicitly approved.
+          * Do not add comments or documentation unless I explicitly request them.
 
           Unless explicitly asked otherwise, optimize for minimal code changes and simple implementations.
 
@@ -40,6 +41,7 @@
         '';
 
         settings = {
+          preferredNotifChannel = "notifications_disabled";
           env.CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL = "1";
           workflowKeywordTriggerEnabled = false;
           promptSuggestionEnabled = false;
