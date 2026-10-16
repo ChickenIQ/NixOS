@@ -10,6 +10,7 @@
             email = "emibenzar@gmail.com";
           };
           pull.rebase = true;
+          init.defaultBranch = "main";
           url."git@github.com:".pushInsteadOf = "https://github.com/";
         };
       };

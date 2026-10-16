@@ -5,6 +5,7 @@
     bluetooth
     sunshine
     libvirt
+    ollama
     amd
   ];
 }

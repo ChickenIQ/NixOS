@@ -36,6 +36,15 @@
         postPatch = ''
           cp ${model} model_32.kw
           substituteInPlace meson.build --replace-fail "khip = shared_library(" "khip = static_library("
+          substituteInPlace khip_ladspa.c --replace-fail "      khip_ladspa->input_buf_len = 0;" "      float *out = khip_ladspa->output_buf + khip_ladspa->output_buf_len;
+              for (size_t ix = 0; ix < KHIP_BUF_SIZE; ix++) {
+                if (!isfinite(out[ix])) {
+                  memset(out, 0, sizeof(float) * KHIP_BUF_SIZE);
+                  khip_reset(khip_ladspa->khip);
+                  break;
+                }
+              }
+              khip_ladspa->input_buf_len = 0;"
         '';
 
         installPhase = ''

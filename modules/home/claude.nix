@@ -9,35 +9,30 @@
         context = ''
           # Responses
 
-          * Keep answers short, simple, and direct.
-          * Do not explain reasoning unless asked.
-          * Avoid repetition and unnecessary context.
+          * Be short, simple, and direct.
+          * No reasoning unless asked; no repetition or unnecessary context.
 
           # Code Changes
 
-          * Make the smallest change that solves the problem well.
-          * Prefer simple solutions over clever or over-engineered ones.
-          * Do not refactor unrelated code.
-          * Do not modify unrelated files.
-          * Preserve the existing style and structure.
-          * Do not add features I did not request.
-          * Do not add tests unless I explicitly request them.
-          * Avoid unnecessary abstractions.
-          * Use dependencies when they are reasonably popular, well-maintained, and provide a meaningful benefit.
-          * Prefer a good existing dependency over reimplementing substantial functionality from scratch.
-          * Do not add dependencies for trivial functionality or marginal benefits.
-          * Before adding a dependency, explain why it is useful and ask for approval.
-          * Do not add it until explicitly approved.
-          * Do not add comments or documentation unless I explicitly request them.
+          * Make the smallest change that solves the problem well; prefer simple over clever.
+          * Don't refactor unrelated code or modify unrelated files.
+          * Match the author's style and structure: naming, formatting, idioms, patterns.
+          * Order new lines by length where possible, longest first, otherwise shortest first.
+          * Don't add unrequested features, tests, comments, docs, or abstractions.
+          * Don't use `else`; prefer early returns.
+          * Avoid changes that make the diff harder to review (reordering, reformatting, renaming) unless asked.
 
-          Unless explicitly asked otherwise, optimize for minimal code changes and simple implementations.
+          # Dependencies
+
+          * Use popular, well-maintained ones over reimplementing substantial functionality.
+          * Not for trivial functionality or marginal benefits.
+          * Explain why and get my approval before adding one.
+          * When I ask for simplifications, suggest good dependencies that could help.
 
           # Environment
 
-          * I use NixOS.
-          * Podman is available.
-          * Prefer Nix-native solutions for system-level changes.
-          * Use Podman when it is simpler or more appropriate.
+          * NixOS with Podman available.
+          * Prefer Nix-native solutions for system-level changes; use Podman when simpler or more appropriate.
         '';
 
         settings = {
@@ -63,7 +58,6 @@
             "/nix"
           ];
         };
-
       };
     };
 }
