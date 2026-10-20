@@ -8,7 +8,7 @@
 
         src = pkgs.fetchurl {
           url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-          hash = "sha256-V8Wh4sHQhFQD6AI10EMZqqGHp6bszm+qNKYjUzZDG5w=";
+          hash = "sha256-A0SZ5d2LNYPsuDsjOgvotGTZe8F56GOL4oWTkNNg7nQ=";
         };
 
         installPhase = "cp $src $out";

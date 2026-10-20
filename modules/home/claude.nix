@@ -19,6 +19,7 @@
           * Match the author's style and structure: naming, formatting, idioms, patterns.
           * Order new lines by length where possible, longest first, otherwise shortest first.
           * Don't add unrequested features, tests, comments, docs, or abstractions.
+          * Don't suggest tests, they are not needed is most cases.
           * Don't use `else`; prefer early returns.
           * Avoid changes that make the diff harder to review (reordering, reformatting, renaming) unless asked.
 

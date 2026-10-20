@@ -5,12 +5,12 @@
       packages = lib.optionalAttrs pkgs.stdenv.hostPlatform.isx86_64 {
         helium = pkgs.appimageTools.wrapType2 rec {
           pname = "helium";
-          version = "0.19.2.1";
+          version = "0.19.4.1";
           dieWithParent = false;
 
           src = pkgs.fetchurl {
             url = "https://github.com/imputnet/helium-linux/releases/download/${version}/${pname}-${version}-x86_64.AppImage";
-            hash = "sha256-oEVQo8fHC9rTrNOkQw7ajSr8C/cXOpxYpAP+q5UXCH8=";
+            hash = "sha256-Wy2zkrPth/JKqESTYFnWisqYvCBUjqqg3s+jwoCioKc=";
           };
 
           extraInstallCommands =

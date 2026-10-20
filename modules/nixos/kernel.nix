@@ -1,6 +1,6 @@
 {
   flake.nixosModules.kernel =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       boot = {
         kernel.sysctl = {
@@ -8,7 +8,15 @@
           "vm.swappiness" = 10;
         };
 
-        kernelModules = [ "ntsync" ];
+        extraModulePackages = with config.boot.kernelPackages; [
+          v4l2loopback
+        ];
+
+        kernelModules = [
+          "v4l2loopback"
+          "ntsync"
+        ];
+
         kernelPackages = pkgs.unstable.linuxPackages_latest;
       };
     };
