@@ -3,10 +3,7 @@
     { config, pkgs, ... }:
     {
       home = {
-        shellAliases = {
-          agy = ''podman run --rm -it --pull newer -v agy-config:/root/.gemini/antigravity-cli -v "''$PWD:/workspace:rw" ghcr.io/chickeniq/antigravity-cli --dangerously-skip-permissions'';
-          ls = "eza -a --color=auto --group-directories-first";
-        };
+        shellAliases.ls = "eza -a --color=auto --group-directories-first";
         packages = [ pkgs.eza ];
       };
 

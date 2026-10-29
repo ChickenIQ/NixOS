@@ -2,6 +2,8 @@
   flake.homeModules.opencode =
     { pkgs, lib, ... }:
     {
+      stylix.targets.opencode.enable = false;
+
       programs.opencode = {
         enable = true;
         package = pkgs.unstable.opencode;

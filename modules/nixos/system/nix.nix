@@ -1,11 +1,8 @@
 {
   flake.nixosModules.nix =
-    { inputs, self, ... }:
+    { config, ... }:
     {
-      imports = [ inputs.nix-index.nixosModules.nix-index ];
-
       programs = {
-        nix-index-database.comma.enable = true;
         nh = {
           enable = true;
           flake = "/etc/nixos";
@@ -28,11 +25,11 @@
       persistence.directories = [
         {
           directory = "/etc/nixos";
-          user = self.meta.user.name;
+          user = config.vars.user.name;
         }
       ];
 
-      system.stateVersion = self.meta.stateVersion;
+      system.stateVersion = config.vars.stateVersion;
       environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
     };
 }

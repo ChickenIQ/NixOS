@@ -2,24 +2,20 @@
   flake.nixosModules.preservation =
     {
       inputs,
-      self,
       lib,
       ...
     }:
 
     {
       imports = [
+        (lib.mkAliasOptionModule [ "persistence" ] [ "preservation" "preserveAt" "main" ])
         inputs.preservation.nixosModules.preservation
-        (lib.mkAliasOptionModule
-          [ "persistence" ]
-          [ "preservation" "preserveAt" self.meta.persistence.name ]
-        )
       ];
 
       preservation = {
         enable = true;
-        preserveAt.${self.meta.persistence.name} = {
-          persistentStoragePath = self.meta.persistence.directory;
+        preserveAt.main = {
+          persistentStoragePath = "/data";
 
           commonMountOptions = [
             "x-gvfs-hide"
@@ -42,7 +38,7 @@
         };
       };
 
-      fileSystems.${self.meta.persistence.directory}.neededForBoot = true;
+      fileSystems."/data".neededForBoot = true;
       systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
     };
 }

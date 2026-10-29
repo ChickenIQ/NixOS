@@ -1,10 +1,13 @@
 {
   flake.nixosModules.programs =
-    { pkgs, ... }:
+    { inputs, pkgs, ... }:
     {
+      imports = [ inputs.nix-index.nixosModules.nix-index ];
+
       services.flatpak.enable = true;
 
       programs = {
+        nix-index-database.comma.enable = true;
         nix-ld.enable = true;
         appimage = {
           enable = true;

@@ -59,9 +59,20 @@
     in
     {
       apps = {
-        pkg-updater.program = lib.getExe pkg-updater;
-        installer.program = lib.getExe installer;
-        disko.program = lib.getExe disko;
+        pkg-updater = {
+          program = lib.getExe pkg-updater;
+          meta.description = "Run update scripts of local packages";
+        };
+
+        installer = {
+          program = lib.getExe installer;
+          meta.description = "Install a host, optionally formatting a disk";
+        };
+
+        disko = {
+          program = lib.getExe disko;
+          meta.description = "Format or mount a host's disks with disko";
+        };
       };
     };
 }

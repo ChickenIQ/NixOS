@@ -1,33 +1,25 @@
 {
-  flake.nixosModules.desktop =
-    { inputs, pkgs, ... }:
+  flake.nixosModules.session =
     {
-      imports = [ inputs.umbriel.nixosModules.default ];
-
+      config,
+      pkgs,
+      ...
+    }:
+    {
       systemd.user.services.umbriel.environment.TZDIR = "/etc/zoneinfo";
+      time.timeZone = config.vars.timeZone;
 
       services = {
         displayManager.noctalia-greeter.enable = true;
         gnome.gnome-keyring.enable = true;
-        udisks2.enable = true;
-        bpftune.enable = true;
-        lact.enable = true;
         scx = {
           enable = true;
           scheduler = "scx_lavd";
         };
       };
 
-      security = {
-        sudo-rs.enable = true;
-        rtkit.enable = true;
-      };
-
       environment = {
-        variables = {
-          ENABLE_LAYER_MESA_ANTI_LAG = 1;
-          NIXOS_OZONE_WL = 1;
-        };
+        variables.NIXOS_OZONE_WL = 1;
 
         etc."xdg/menus/applications.menu".source =
           "${pkgs.lxqt.lxqt-menu-data}/etc/xdg/menus/lxqt-applications.menu";

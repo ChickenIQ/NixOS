@@ -53,6 +53,11 @@
             setup_wizard_enabled = false;
             polkit_agent = true;
 
+            launcher = {
+              category_icons_only = true;
+              layout = "simple";
+            };
+
             window_switcher = {
               current_workspace_only = true;
               show_all_outputs = false;
@@ -60,6 +65,7 @@
             };
           };
 
+          osd.kinds.media = false;
           audio.enable_overdrive = true;
           control_center.sidebar = "full";
           brightness.enable_ddcutil = true;

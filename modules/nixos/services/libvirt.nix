@@ -1,7 +1,7 @@
 {
   flake.nixosModules.libvirt =
     {
-      self,
+      config,
       pkgs,
       lib,
       ...
@@ -40,7 +40,7 @@
         lib.concatMapStringsSep "\n" (dst: "iptables -I FORWARD -s ${src} -d ${dst} -j DROP") dsts;
 
       persistence.directories = [ "/var/lib/libvirt" ];
-      users.users.${self.meta.user.name}.extraGroups = [ "libvirtd" ];
+      users.users.${config.vars.user.name}.extraGroups = [ "libvirtd" ];
       systemd.services.libvirtd.serviceConfig.LoadCredentialEncrypted = "";
     };
 }

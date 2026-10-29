@@ -8,6 +8,7 @@
       systemd.sleep.settings.Sleep.AllowHibernation = "no";
 
       boot = {
+        kernelParams = [ "amdgpu.dcdebugmask=0x20000" ];
         kernelModules = [ "nct6775" ];
         zswap.enable = true;
       };
@@ -21,7 +22,7 @@
 
         gpus:
           1002:7550-1DA2:E490-0000:03:00.0:
-            voltage_offset: -70
+            voltage_offset: -50
             power_cap: 250.0
 
             performance_level: manual

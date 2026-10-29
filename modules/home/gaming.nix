@@ -2,6 +2,12 @@
   flake.homeModules.gaming =
     { pkgs, ... }:
     {
+      programs.mangohud = {
+        enable = true;
+        settings.preset = 0;
+        enableSessionWide = true;
+      };
+
       home.packages = with pkgs.unstable; [
         faugus-launcher
         umu-launcher

@@ -1,6 +1,6 @@
 {
   flake.nixosModules.disko =
-    { inputs, self, ... }:
+    { inputs, ... }:
     {
       imports = [ inputs.disko.nixosModules.disko ];
       services.btrfs.autoScrub.enable = true;
@@ -40,8 +40,8 @@
                   ];
                 };
 
-                "${self.meta.persistence.name}" = {
-                  mountpoint = self.meta.persistence.directory;
+                "data" = {
+                  mountpoint = "/data";
                   mountOptions = [
                     "compress=zstd"
                     "noatime"

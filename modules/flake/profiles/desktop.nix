@@ -1,43 +1,36 @@
 { self, ... }:
 {
-  flake.hosts."default" = {
-    home-manager.users."${self.meta.user.name}".imports = with self.homeModules; [
+  flake.profiles.desktop = {
+    home.imports = with self.homeModules; [
       development
       claude-code
-      k8s-tools
       kde-tools
+      k8s-tools
       noctalia
       programs
       opencode
-      mangohud
       flatpak
       umbriel
       gaming
       stylix
       helium
-      shell
       kitty
+      shell
       nvim
       zed
     ];
 
     imports = with self.nixosModules; [
+      self.profiles.base
       network-manager
-      preservation
-      home-manager
-      reset-root
+      peripherals
+      secureboot
       programs
       pipewire
-      desktop
-      netbird
-      openssh
-      podman
-      limine
+      session
       kernel
-      steam
-      disko
-      users
-      nix
+      gaming
+      gpu
     ];
   };
 }

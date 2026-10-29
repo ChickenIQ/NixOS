@@ -12,6 +12,12 @@
     default = { };
   };
 
+  options.flake.profiles = lib.mkOption {
+    type = lib.types.lazyAttrsOf lib.types.deferredModule;
+    description = "NixOS profile modules";
+    default = { };
+  };
+
   config.flake.nixosConfigurations = lib.mapAttrs (
     hostname: hostModule:
     withSystem "x86_64-linux" (
@@ -25,8 +31,13 @@
         inherit specialArgs;
 
         modules = [
-          (self.hosts.default or { })
-          hostModule
+          {
+            options.vars = lib.mkOption {
+              type = lib.types.attrsOf lib.types.anything;
+              default = { };
+            };
+          }
+
           {
             networking.hostName = hostname;
             nixpkgs = {
@@ -34,8 +45,9 @@
               inherit pkgs;
             };
           }
-        ];
+        ]
+        ++ [ hostModule ];
       }
     )
-  ) (lib.removeAttrs self.hosts [ "default" ]);
+  ) self.hosts;
 }
