@@ -15,5 +15,7 @@
           defaultNetwork.settings.dns_enabled = true;
         };
       };
+
+      systemd.user.services.podman-restart.wantedBy = [ "default.target" ];
     };
 }
