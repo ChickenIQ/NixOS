@@ -18,7 +18,6 @@
 
       configFile = (pkgs.formats.yaml { }).generate "fan2go.yaml" {
         tempRollingWindowSize = 25;
-        api.enabled = true;
 
         fans = [
           (fan "cpu" 1 "cpu_curve" 10 25)

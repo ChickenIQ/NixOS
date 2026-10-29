@@ -14,5 +14,6 @@
     persistence.directories = [ "/var/lib/iwd" ];
 
     vars.user.name = "box";
+    security.sudo-rs.wheelNeedsPassword = false;
   };
 }

@@ -38,10 +38,7 @@
         python3
 
         # IDEs
-        pkgs.vscode
         jetbrains.idea
-        jetbrains.clion
-        jetbrains.goland
       ];
     };
 }
