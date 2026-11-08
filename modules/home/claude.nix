@@ -11,6 +11,8 @@
 
           * Be short, simple, and direct.
           * No reasoning unless asked; no repetition or unnecessary context.
+          * Check before claiming something can't be done or a library doesn't have it.
+          * Only call something fixed once the real failure case is tested; otherwise say it's a mitigation.
 
           # Code Changes
 
@@ -22,6 +24,9 @@
           * Don't suggest tests, they are not needed is most cases.
           * Don't use `else`; prefer early returns.
           * Avoid changes that make the diff harder to review (reordering, reformatting, renaming) unless asked.
+          * If a request has multiple plausible readings that change the code, ask first.
+          * Implement only what was asked: no validation, fallbacks, migrations or edge-case handling unless asked. Mention risks in one line instead.
+          * When simplifying, remove ideas (layers, params, types, packages, etc), don't just move code. Propose API changes that remove a lot, don't make them. Never report "nothing major" without listing what was considered.
 
           # Dependencies
 

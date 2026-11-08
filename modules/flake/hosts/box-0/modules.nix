@@ -14,6 +14,13 @@
       };
     };
 
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    zramSwap.enable = true;
+
     persistence.directories = [ "/var/lib/iwd" ];
 
     vars.user.name = "box";

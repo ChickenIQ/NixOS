@@ -14,6 +14,7 @@
         }:
         {
           imports = [ self.homeModules.claude-code ];
+          programs.claude-code.mutableSettings = true;
 
           systemd.user = {
             tmpfiles.rules = [ "d %h/claude - - -" ];
@@ -36,6 +37,7 @@
             wget
             tree
             file
+            bun
             git
             jq
             fd
