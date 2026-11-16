@@ -1,13 +1,20 @@
 {
   flake.homeModules.opencode =
     { pkgs, lib, ... }:
+    let
+      rule = action: effect: resource: { inherit action effect resource; };
+    in
     {
       stylix.targets.opencode.enable = false;
 
       programs.opencode = {
         enable = true;
         package = pkgs.unstable.opencode;
-        tui.theme = lib.mkForce "carbonfox";
+        cli = {
+          theme.name = lib.mkForce "carbonfox";
+          session.sidebar = "hide";
+          tabs.mode = "off";
+        };
 
         context = ''
           # Responses
@@ -44,10 +51,33 @@
           * Prefer Nix-native solutions for system-level changes; use Podman when simpler or more appropriate.
         '';
 
-        settings.permission.external_directory = {
-          "/etc/profiles/per-user/**" = "allow";
-          "/run/current-system/**" = "allow";
-          "/nix/**" = "allow";
+        settings.permissions = [
+          (rule "external_directory" "ask" "*")
+          (rule "external_directory" "allow" "/etc/profiles/per-user/*")
+          (rule "external_directory" "allow" "/run/current-system/*")
+          (rule "external_directory" "allow" "/nix/*")
+          (rule "external_directory" "allow" "/tmp/*")
+          (rule "external_directory" "allow" "~/.rustup/*")
+          (rule "external_directory" "allow" "~/.cargo/*")
+          (rule "external_directory" "allow" "~/go/*")
+          (rule "external_directory" "allow" "~/.local/share/opencode/tool-output/*")
+          (rule "external_directory" "allow" "~/.local/share/opencode/shell/*")
+        ];
+
+        settings.policies = [
+          (rule "integration.connect" "deny" "opencode-go")
+          (rule "integration.connect" "deny" "opencode")
+          (rule "provider.use" "deny" "opencode-go")
+          (rule "provider.use" "deny" "opencode")
+          (rule "skill.use" "deny" "report")
+        ];
+
+        settings.plugins = [ "-opencode.config.compatibility" ];
+
+        settings.providers.claude-agent.models = {
+          sonnet.limit.context = 1000000;
+          haiku.limit.context = 100000;
+          opus.limit.context = 1000000;
         };
       };
     };

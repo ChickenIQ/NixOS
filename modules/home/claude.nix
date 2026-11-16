@@ -2,6 +2,15 @@
   flake.homeModules.claude-code =
     { pkgs, ... }:
     {
+      programs.claude-code.settings = {
+        apiKeyHelper = "cat ~/.claude/key";
+        disableClaudeAiConnectors = true;
+        env = {
+          CLAUDE_CODE_AUTO_MODE_SERVER = "0";
+          ANTHROPIC_BASE_URL = "http://box-0.netbird.cloud:8317";
+        };
+      };
+
       programs.claude-code = {
         enable = true;
         package = pkgs.unstable.claude-code;

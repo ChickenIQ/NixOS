@@ -12,18 +12,18 @@
     in
     {
       programs.umbriel.settings.keybinds = {
-        "Mod+Shift+S" = "spawn:${noctalia "screenshot-region"}";
-        "Print" = "spawn:${noctalia "screenshot-region"}";
+        "Mod+Shift+S" = "spawn ${noctalia "screenshot-region"}";
+        "Print" = "spawn ${noctalia "screenshot-region"}";
 
-        "XF86AudioLowerVolume" = "spawn:${noctalia "volume-down"}";
-        "XF86AudioRaiseVolume" = "spawn:${noctalia "volume-up"}";
-        "XF86AudioMute" = "spawn:${noctalia "volume-mute"}";
-        "XF86AudioMicMute" = "spawn:${noctalia "mic-mute"}";
+        "XF86AudioLowerVolume" = "spawn ${noctalia "volume-down"}";
+        "XF86AudioRaiseVolume" = "spawn ${noctalia "volume-up"}";
+        "XF86AudioMute" = "spawn ${noctalia "volume-mute"}";
+        "XF86AudioMicMute" = "spawn ${noctalia "mic-mute"}";
 
-        "XF86AudioPrev" = "spawn:${noctalia "media previous"}";
-        "XF86AudioPlay" = "spawn:${noctalia "media toggle"}";
-        "XF86AudioStop" = "spawn:${noctalia "media stop"}";
-        "XF86AudioNext" = "spawn:${noctalia "media next"}";
+        "XF86AudioPrev" = "spawn ${noctalia "media previous"}";
+        "XF86AudioPlay" = "spawn ${noctalia "media toggle"}";
+        "XF86AudioStop" = "spawn ${noctalia "media stop"}";
+        "XF86AudioNext" = "spawn ${noctalia "media next"}";
 
         "Mod+Left" = "window-focus-previous";
         "Mod+Right" = "window-focus-next";
@@ -40,8 +40,8 @@
 
         "Mod+Shift+Down" = "window-move-to-workspace-next";
         "Mod+Shift+Up" = "window-move-to-workspace-previous";
-        "Mod+Bracketright" = "window-modify-primary-extent:0.1";
-        "Mod+Bracketleft" = "window-modify-primary-extent:-0.1";
+        "Mod+Bracketright" = "window-modify-primary-extent 0.1";
+        "Mod+Bracketleft" = "window-modify-primary-extent -0.1";
 
         "Mod+Shift+F" = "window-toggle-fullscreen";
         "Mod+Ctrl+F" = "window-toggle-floating";
@@ -50,21 +50,21 @@
         "Mod+R" = "window-cycle-primary-extent";
         "Mod+Q" = "window-close";
 
-        "Alt+Tab" = "spawn:${noctalia "window-switcher hold"}";
+        "Alt+Tab" = "spawn ${noctalia "window-switcher hold"}";
         "Mod+Tab" = {
           action = "overview-toggle";
           repeat = false;
         };
 
-        "Mod+Space" = "spawn:${noctalia "panel-toggle launcher"}";
-        "Mod+V" = "spawn:${noctalia "panel-toggle clipboard"}";
-        "Mod+L" = "spawn:${noctalia "session lock"}";
+        "Mod+Space" = "spawn ${noctalia "panel-toggle launcher"}";
+        "Mod+V" = "spawn ${noctalia "panel-toggle clipboard"}";
+        "Mod+L" = "spawn ${noctalia "session lock"}";
 
-        "Mod+Return" = "spawn:${lib.getExe config.programs.kitty.package}";
-        "Mod+Insert" = "spawn:${lib.getExe' pkgs.self.gsr-tools "gsr-save"}";
-        "Mod+E" = "spawn:${lib.getExe pkgs.kdePackages.dolphin}";
-        "Mod+C" = "spawn:${flatpak "com.discordapp.Discord"}";
-        "Mod+W" = "spawn:${lib.getExe pkgs.self.helium}";
+        "Mod+Return" = "spawn ${lib.getExe config.programs.kitty.package}";
+        "Mod+Insert" = "spawn ${lib.getExe' pkgs.self.gsr-tools "gsr-save"}";
+        "Mod+E" = "spawn ${lib.getExe pkgs.kdePackages.dolphin}";
+        "Mod+C" = "spawn ${flatpak "com.discordapp.Discord"}";
+        "Mod+W" = "spawn ${lib.getExe pkgs.self.helium}";
       };
     };
 }
