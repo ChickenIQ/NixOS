@@ -16,6 +16,7 @@
           sidebar_width = 190;
           show_network = false;
           show_preview = false;
+          show_emblems = false;
           show_hidden = true;
           view_mode = "grid";
           sort_by = "type";

@@ -23,17 +23,17 @@
                     primary = base0D;
                     on_primary = base00;
                     primary_container = base02;
-                    on_primary_container = base0D;
+                    on_primary_container = base05;
 
                     secondary = base0E;
                     on_secondary = base00;
                     secondary_container = base02;
-                    on_secondary_container = base0E;
+                    on_secondary_container = base05;
 
                     tertiary = base0C;
                     on_tertiary = base00;
                     tertiary_container = base02;
-                    on_tertiary_container = base0C;
+                    on_tertiary_container = base05;
 
                     error = base08;
                     on_error = base00;
@@ -43,8 +43,8 @@
                     surface = base00;
                     on_surface = base05;
                     on_surface_variant = base04;
-                    surface_container_highest = base02;
-                    surface_container_high = base02;
+                    surface_container_highest = base03;
+                    surface_container_high = base01;
                     surface_container_low = base00;
                     surface_container = base01;
 
