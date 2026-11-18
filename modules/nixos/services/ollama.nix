@@ -12,6 +12,7 @@
         };
       };
 
+      # TMP
       environment.systemPackages = [
         (pkgs.unstable.alpaca.overridePythonAttrs (old: {
           dependencies = old.dependencies ++ [ pkgs.unstable.python3Packages.pandas ];

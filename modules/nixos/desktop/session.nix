@@ -2,12 +2,22 @@
   flake.nixosModules.session =
     {
       config,
+      inputs',
       pkgs,
       ...
     }:
     {
       systemd.user.services.umbriel.environment.TZDIR = "/etc/zoneinfo";
       time.timeZone = config.vars.timeZone;
+
+      # TMP until upstream
+      xdg.portal = {
+        config.umbriel = {
+          "org.freedesktop.impl.portal.FileChooser" = "luciole;gtk";
+          default = "umbriel;gtk";
+        };
+        extraPortals = [ inputs'.luciole.packages.default ];
+      };
 
       services = {
         displayManager.noctalia-greeter.enable = true;
