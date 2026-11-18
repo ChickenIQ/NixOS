@@ -36,6 +36,12 @@
         }
 
         {
+          match.title = "^(?!(Steam|Friends List)$)";
+          match.app_id = "^steam$";
+          default_floating = true;
+        }
+
+        {
           match.app_id = "^steam_app_[0-9]+$";
           default_floating = false;
         }

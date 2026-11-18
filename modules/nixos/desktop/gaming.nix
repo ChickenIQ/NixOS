@@ -18,6 +18,11 @@
         steam = {
           enable = true;
           package = pkgs.self.steam;
+          # TMP
+          extraPackages = with pkgs; [
+            libxtst
+            libvdpau
+          ];
           extraCompatPackages = with pkgs; [
             self.proton-cachyos
             proton-ge-bin

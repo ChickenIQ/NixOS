@@ -11,6 +11,7 @@
       opencode
       flatpak
       umbriel
+      luciole
       gaming
       stylix
       helium

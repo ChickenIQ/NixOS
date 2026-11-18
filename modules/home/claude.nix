@@ -2,15 +2,6 @@
   flake.homeModules.claude-code =
     { pkgs, ... }:
     {
-      programs.claude-code.settings = {
-        apiKeyHelper = "cat ~/.claude/key";
-        disableClaudeAiConnectors = true;
-        env = {
-          CLAUDE_CODE_AUTO_MODE_SERVER = "0";
-          ANTHROPIC_BASE_URL = "http://box-0.netbird.cloud:8317";
-        };
-      };
-
       programs.claude-code = {
         enable = true;
         package = pkgs.unstable.claude-code;
@@ -32,6 +23,8 @@
           * Don't add unrequested features, tests, comments, docs, or abstractions.
           * Don't suggest tests, they are not needed is most cases.
           * Don't use `else`; prefer early returns.
+          * Verify before you claim: read the code or docs, or run it. Don't report unverified bugs, risks or behavior; check them first
+          * If a check is cheap, do it instead of asking or speculating.
           * Avoid changes that make the diff harder to review (reordering, reformatting, renaming) unless asked.
           * If a request has multiple plausible readings that change the code, ask first.
           * Implement only what was asked: no validation, fallbacks, migrations or edge-case handling unless asked. Mention risks in one line instead.
@@ -52,8 +45,9 @@
 
         settings = {
           preferredNotifChannel = "notifications_disabled";
-          env.CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL = "1";
           workflowKeywordTriggerEnabled = false;
+          apiKeyHelper = "cat ~/.claude/key";
+          disableClaudeAiConnectors = true;
           promptSuggestionEnabled = false;
           spinnerTipsEnabled = false;
           awaySummaryEnabled = false;
@@ -62,16 +56,17 @@
           feedbackDrafts = "off";
           tui = "fullscreen";
 
+          env = {
+            ANTHROPIC_BASE_URL = "http://box-0.netbird.cloud:8317";
+            CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL = "1";
+            CLAUDE_CODE_AUTO_MODE_SERVER = "0";
+            CLAUDE_CODE_EFFORT_LEVEL = "high";
+          };
+
           enabledPlugins = {
             "rust-analyzer-lsp@claude-plugins-official" = true;
             "gopls-lsp@claude-plugins-official" = true;
           };
-
-          permissions.additionalDirectories = [
-            "/etc/profiles/per-user"
-            "/run/current-system"
-            "/nix"
-          ];
         };
       };
     };

@@ -27,6 +27,7 @@
                 error = base08;
 
                 insert_hint = "${base0C}80";
+                shadow = "${base00}7F";
                 backdrop = base00;
 
                 border = {
@@ -52,6 +53,27 @@
                   active_unfocused = base03;
                   active_unfocused_text = base05;
                 };
+
+                title_bar = {
+                  text = base05;
+                  close = base08;
+                  minimize = base0A;
+                  maximize = base0D;
+                  background = base02;
+                  close_glyph = base00;
+                  text_unfocused = base04;
+                  minimize_glyph = base00;
+                  maximize_glyph = base00;
+                  close_glyph_hover = base00;
+                  background_unfocused = base01;
+                  minimize_glyph_hover = base00;
+                  maximize_glyph_hover = base00;
+                };
+              };
+
+              appearance = with config.stylix.fonts; {
+                title_bar.font = "${sansSerif.name} ${toString sizes.desktop}";
+                tab_bar.font = "${sansSerif.name} ${toString sizes.desktop}";
               };
 
               input = lib.mkIf (config.stylix.cursor != null) {

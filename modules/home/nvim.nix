@@ -2,7 +2,7 @@
   flake.homeModules.nvim =
     { inputs, pkgs, ... }:
     {
-      imports = [ inputs.nvf.homeManagerModules.default ];
+      imports = [ inputs.nvf.homeModules.default ];
       stylix.targets.nvf.enable = false;
 
       programs.nvf = {
