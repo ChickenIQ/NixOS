@@ -5,6 +5,7 @@
       imports = [ inputs.stylix.homeModules.stylix ];
 
       stylix = {
+        targets.rofi.enable = false; # TMP
         enable = true;
         overlays.enable = false;
         fonts.sizes.applications = 10;
