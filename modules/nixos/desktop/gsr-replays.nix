@@ -9,7 +9,7 @@
       environment.systemPackages = [ pkgs.self.gsr-tools ];
       programs.gpu-screen-recorder.enable = true;
 
-      systemd.user.services.gpu-screen-recorder = {
+      systemd.user.services.gsr-replays = {
         description = "GPU Screen Recorder Replay Service";
         wantedBy = [ "graphical-session.target" ];
         partOf = [ "graphical-session.target" ];

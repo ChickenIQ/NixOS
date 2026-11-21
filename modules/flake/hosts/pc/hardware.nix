@@ -4,6 +4,10 @@
     {
       environment.systemPackages = [ pkgs.self.winreboot ];
 
+      services.udev.extraRules = ''
+        ENV{ID_FS_UUID}=="45f215a1-4fae-4d4a-9689-679cd270ebce", ENV{UDISKS_IGNORE}="1"
+      '';
+
       swapDevices = [ { device = "/dev/disk/by-partlabel/swap"; } ];
       systemd.sleep.settings.Sleep.AllowHibernation = "no";
 

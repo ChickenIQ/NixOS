@@ -22,6 +22,7 @@
       services = {
         displayManager.noctalia-greeter.enable = true;
         gnome.gnome-keyring.enable = true;
+        gvfs.enable = true;
         scx-loader = {
           enable = true;
           config.default_sched = "scx_lavd";

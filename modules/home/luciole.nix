@@ -3,6 +3,7 @@
     { inputs, ... }:
     {
       imports = [ inputs.luciole.homeModules.default ];
+      xdg.mimeApps.defaultApplications."inode/directory" = [ "dev.noctalia.luciole.desktop" ];
 
       programs.luciole = {
         enable = true;

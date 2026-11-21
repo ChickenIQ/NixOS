@@ -9,7 +9,6 @@
         ffmpegthumbs
         kio-extras
         pkgs.qview
-        dolphin
         kate
         ark
       ];
@@ -22,7 +21,6 @@
           ];
 
           defaultApplications = {
-            "inode/directory" = [ "org.kde.dolphin.desktop" ];
             "application/x-jar" = [ "org.kde.ark.desktop" ];
             "text/plain" = [ "org.kde.kate.desktop" ];
           };

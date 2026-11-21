@@ -62,7 +62,7 @@
 
         "Mod+Return" = "spawn ${lib.getExe config.programs.kitty.package}";
         "Mod+Insert" = "spawn ${lib.getExe' pkgs.self.gsr-tools "gsr-save"}";
-        "Mod+E" = "spawn ${lib.getExe pkgs.kdePackages.dolphin}";
+        "Mod+E" = "spawn ${lib.getExe config.programs.luciole.package}";
         "Mod+C" = "spawn ${flatpak "com.discordapp.Discord"}";
         "Mod+W" = "spawn ${lib.getExe pkgs.self.helium}";
       };

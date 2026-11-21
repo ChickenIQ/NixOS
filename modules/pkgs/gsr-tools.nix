@@ -29,7 +29,7 @@
         ];
 
         text = ''
-          if ! systemctl --user kill -s SIGUSR1 --kill-who=main gpu-screen-recorder; then
+          if ! systemctl --user kill -s SIGUSR1 --kill-who=main gsr-replays; then
             notify-send -e "GPU Screen Recorder" "Failed to save replay!"
             play -qn synth .065 sine E4 fade h .005 .065 .028 gain -18
             play -qn synth .105 sine F4 fade h .005 .105 .048 gain -18
